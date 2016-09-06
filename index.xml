@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>yusukezzz weblog</title>
+    <link>http://yusukezzz.net/</link>
+    <description>Recent content on yusukezzz weblog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja-jp</language>
+    <lastBuildDate>Sun, 31 Jul 2016 23:00:22 +0900</lastBuildDate>
+    <atom:link href="http://yusukezzz.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>hello world</title>
+      <link>http://yusukezzz.net/blog/2016/07/31/hello-world</link>
+      <pubDate>Sun, 31 Jul 2016 23:00:22 +0900</pubDate>
+      
+      <guid>http://yusukezzz.net/blog/2016/07/31/hello-world</guid>
+      <description>&lt;p&gt;Hello hugo!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

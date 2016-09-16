@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
@@ -18,7 +16,7 @@
   
 
   
-  <title>404 Page not found</title>
+  <title>gradle のタスクに alias 名を設定する</title>
 
   
   
@@ -37,7 +35,7 @@
   
   
 
-  <link href="http://www.yusukezzz.net/index.xml" rel="alternate" type="application/rss+xml" title="yusukezzz weblog" />
+  
 
   <meta name="description" content="">
   <meta name="keywords" content="">
@@ -100,22 +98,90 @@
 <div id="main">
   <div id="content">
     <div>
-      <article role="article">
-        <header>
-          <h1 class="entry-title">
-            
-              ページが見つかりません
-            
-          </h1>
-        </header>
-        <div id="blog-archives" class="category">
+      <article class="hentry" role="article">
+
+        
+        
+
+<header>
+    <h1 class="entry-title">
+         gradle のタスクに alias 名を設定する 
+    </h1>
+    <p class="meta">Sep 16, 2016
+        
+         - <a href="http://www.yusukezzz.net/blog/2016/09/16/gradle-alias-name#disqus_thread">Comments</a>
+
+        
+        
+        
+            - <a class="label" href="http://www.yusukezzz.net/categories/dev/">Dev</a>
+        
+    </p>
+</header>
+
+
+        <div class="entry-content">
           
-            ページを戻るかメニュー/サイドバーから探して下さい
           
+          
+          <p>新しい空のタスクを定義し、元タスクを dependsOn で指定します</p>
+
+<pre><code>task shortName(dependsOn: veryLongTaskName)
+</code></pre>
+
         </div>
+        
+
+<footer>
+  <p class="meta">
+    <span class="byline author vcard">Posted by <span class="fn">yusukezzz</span></span>
+    
+    <time>Sep 16, 2016</time>
+    
+      <span class="categories">
+        Tags:
+        
+          <a class="category" href="http://www.yusukezzz.net/tags/gradle">gradle</a>  
+    
+    </span>
+  </p>
+
+  
+  
+
+  
+
+  <p class="meta">
+    
+
+    
+  </p>
+  
+    
+      <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    
+    
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Your Google Analytics tracking code';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    
+  
+</footer>
+
       </article>
     </div>
-
     
 
 <aside class="sidebar thirds">

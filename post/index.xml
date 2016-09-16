@@ -2,20 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on yusukezzz weblog</title>
-    <link>http://yusukezzz.net/post/</link>
+    <link>http://www.yusukezzz.net/post/</link>
     <description>Recent content in Posts on yusukezzz weblog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sun, 31 Jul 2016 23:00:22 +0900</lastBuildDate>
-    <atom:link href="http://yusukezzz.net/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Sep 2016 18:13:31 +0900</lastBuildDate>
+    <atom:link href="http://www.yusukezzz.net/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>hello world</title>
-      <link>http://yusukezzz.net/blog/2016/07/31/hello-world</link>
-      <pubDate>Sun, 31 Jul 2016 23:00:22 +0900</pubDate>
+      <title>gradle のタスクに alias 名を設定する</title>
+      <link>http://www.yusukezzz.net/blog/2016/09/16/gradle-alias-name</link>
+      <pubDate>Fri, 16 Sep 2016 18:13:31 +0900</pubDate>
       
-      <guid>http://yusukezzz.net/blog/2016/07/31/hello-world</guid>
-      <description>&lt;p&gt;Hello hugo!&lt;/p&gt;
+      <guid>http://www.yusukezzz.net/blog/2016/09/16/gradle-alias-name</guid>
+      <description>&lt;p&gt;新しい空のタスクを定義し、元タスクを dependsOn で指定します&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;task shortName(dependsOn: veryLongTaskName)
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

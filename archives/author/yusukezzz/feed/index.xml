@@ -10,7 +10,7 @@
 <channel>
 	<title>yusukezzz &#8211; Yusukezzz weblog</title>
 	<atom:link href="http://localhost/wordpress/archives/author/yusukezzz/feed" rel="self" type="application/rss+xml" />
-	<link></link>
+	<link>http://www.yusukezzz.net</link>
 	<description></description>
 	<lastBuildDate>Wed, 03 May 2017 16:02:50 +0000</lastBuildDate>
 	<language>ja</language>
@@ -19,17 +19,17 @@
 	<generator>https://wordpress.org/?v=4.7.4</generator>
 	<item>
 		<title>Hello world</title>
-		<link>/archives/6</link>
-		<comments>/archives/6#respond</comments>
+		<link>http://www.yusukezzz.net/archives/6</link>
+		<comments>http://www.yusukezzz.net/archives/6#respond</comments>
 		<pubDate>Wed, 03 May 2017 16:02:27 +0000</pubDate>
 		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
 				<category><![CDATA[未分類]]></category>
 
-		<guid isPermaLink="false">/?p=6</guid>
+		<guid isPermaLink="false">http://www.yusukezzz.net/?p=6</guid>
 		<description><![CDATA[test]]></description>
 				<content:encoded><![CDATA[<p>test</p>
 ]]></content:encoded>
-			<wfw:commentRss>/archives/6/feed</wfw:commentRss>
+			<wfw:commentRss>http://www.yusukezzz.net/archives/6/feed</wfw:commentRss>
 		<slash:comments>0</slash:comments>
 		</item>
 	</channel>

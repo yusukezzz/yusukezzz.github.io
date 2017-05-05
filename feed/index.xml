@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
-	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns:atom="http://www.w3.org/2005/Atom"
 	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
@@ -12,7 +11,7 @@
 	<atom:link href="http://localhost/wordpress/feed" rel="self" type="application/rss+xml" />
 	<link>http://www.yusukezzz.net</link>
 	<description></description>
-	<lastBuildDate>Wed, 03 May 2017 16:02:50 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 05 May 2017 09:14:17 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -26,11 +25,11 @@
 				<category><![CDATA[uncategorized]]></category>
 
 		<guid isPermaLink="false">http://www.yusukezzz.net/?p=6</guid>
-		<description><![CDATA[test]]></description>
-				<content:encoded><![CDATA[<p>test</p>
+		<description><![CDATA[test echo "Hello world!";]]></description>
+				<content:encoded><![CDATA[<h1>test</h1>
+<pre><code class="php">echo "Hello world!";
+</code></pre>
 ]]></content:encoded>
-			<wfw:commentRss>http://www.yusukezzz.net/archives/6/feed</wfw:commentRss>
-		<slash:comments>0</slash:comments>
-		</item>
+			</item>
 	</channel>
 </rss>

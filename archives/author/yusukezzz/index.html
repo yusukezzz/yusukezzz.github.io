@@ -62,26 +62,8 @@ $("#wrapper").vids();
 &copy; 2017 Yusukezzz weblog</div>
 </footer>
 </div>
-<link rel='stylesheet' id='hljstheme-css'  href='http://www.yusukezzz.net/wp-content/plugins/wp-code-highlightjs/styles/monokai.css?ver=0.5.18' type='text/css' media='all' />
-<script type='text/javascript' src='http://www.yusukezzz.net/wp-content/plugins/wp-code-highlightjs/highlight.common.pack.js?ver=0.5.18'></script>
-<script type='text/javascript' src='http://www.yusukezzz.net/wp-content/plugins/wp-code-highlightjs/highlight.custom.pack.js?ver=0.5.18'></script>
-    <style>pre.hljs {padding: 5px;}
-pre.hljs code {}</style>
-    <script type="text/javascript">
-    (function($, window) {
-        var init_fn_flag = false;
-        var init_fn = (function() {
-            if (init_fn_flag)
-                return;
-            init_fn_flag = true;
-             hljs.configure({"tabReplace":"    "});
-            $('pre code').each(function(i, block) {
-                hljs.highlightBlock(block);
-            });
-        });
-        $(document).ready(init_fn);
-        $(window).on("load", init_fn);
-    })(jQuery, window);
-    </script>
+<link rel="stylesheet" href="http://www.yusukezzz.net/wp-content/highlightjs/monokai.css">
+<script src="http://www.yusukezzz.net/wp-content/highlightjs/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

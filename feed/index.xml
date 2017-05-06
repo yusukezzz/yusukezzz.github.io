@@ -11,12 +11,36 @@
 	<atom:link href="http://localhost/wordpress/feed" rel="self" type="application/rss+xml" />
 	<link>http://www.yusukezzz.net</link>
 	<description></description>
-	<lastBuildDate>Sat, 06 May 2017 00:26:41 +0000</lastBuildDate>
+	<lastBuildDate>Sat, 06 May 2017 16:05:07 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.7.4</generator>
 	<item>
+		<title>tmux 2.4 で vi 風キーバインドが invalid or unknown command と言われる</title>
+		<link>http://www.yusukezzz.net/archives/46</link>
+		<pubDate>Sat, 06 May 2017 16:05:07 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[tmux]]></category>
+
+		<guid isPermaLink="false">http://www.yusukezzz.net/?p=46</guid>
+		<description><![CDATA[起動時に invalid or unknown command: bind-key -t vi-copy v  [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>起動時に</p>
+<p><code>invalid or unknown command: bind-key -t vi-copy v begin-selection</code></p>
+<p>などと言われる<br />
+どうやら設定の書き方が変わってしまったようだ</p>
+<p><a href="https://github.com/tmux/tmux/issues/754">invalid or unknown command: &#96;bind&#45;key &#45;t vi&#45;copy &#46;&#46;&#46;&#46;&#96; · Issue &#35;754 · tmux/tmux</a></p>
+<p>ここの下の方に書かれているが、こんな感じにすると直った</p>
+<pre><code class="shell">unbind-key -T copy-mode-vi Space     ;   bind-key -T copy-mode-vi v send-keys -X begin-selection
+unbind-key -T copy-mode-vi Enter     ;   bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+unbind-key -T copy-mode-vi C-v       ;   bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+unbind-key -T copy-mode-vi [         ;   bind-key -T copy-mode-vi [ send-keys -X begin-selection
+unbind-key -T copy-mode-vi ]         ;   bind-key -T copy-mode-vi ] send-keys -X copy-selection
+</code></pre>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>静的サイトジェネレーターを試して wordpress に戻ってみた話</title>
 		<link>http://www.yusukezzz.net/archives/22</link>
 		<pubDate>Fri, 05 May 2017 12:52:12 +0000</pubDate>

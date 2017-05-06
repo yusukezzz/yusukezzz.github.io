@@ -29,6 +29,33 @@
 </section>
 </header>
 <div id="container"><section id="content" role="main">
+<article id="post-46" class="post-46 post type-post status-publish format-standard hentry category-uncategorized tag-tmux">
+<header>
+<h2 class="entry-title"><a href="http://www.yusukezzz.net/archives/46" title="tmux 2.4 で vi 風キーバインドが invalid or unknown command と言われる" rel="bookmark">tmux 2.4 で vi 風キーバインドが invalid or unknown command と言われる</a></h2> <section class="entry-meta">
+<span class="author vcard"><a href="http://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
+<span class="meta-sep"> | </span>
+<span class="entry-date">2017-05-07</span>
+</section>
+</header>
+<section class="entry-content">
+<p>起動時に</p>
+<p><code>invalid or unknown command: bind-key -t vi-copy v begin-selection</code></p>
+<p>などと言われる<br />
+どうやら設定の書き方が変わってしまったようだ</p>
+<p><a href="https://github.com/tmux/tmux/issues/754">invalid or unknown command: &#96;bind&#45;key &#45;t vi&#45;copy &#46;&#46;&#46;&#46;&#96; · Issue &#35;754 · tmux/tmux</a></p>
+<p>ここの下の方に書かれているが、こんな感じにすると直った</p>
+<pre><code class="shell">unbind-key -T copy-mode-vi Space     ;   bind-key -T copy-mode-vi v send-keys -X begin-selection
+unbind-key -T copy-mode-vi Enter     ;   bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+unbind-key -T copy-mode-vi C-v       ;   bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+unbind-key -T copy-mode-vi [         ;   bind-key -T copy-mode-vi [ send-keys -X begin-selection
+unbind-key -T copy-mode-vi ]         ;   bind-key -T copy-mode-vi ] send-keys -X copy-selection
+</code></pre>
+<div class="entry-links"></div>
+</section>
+<footer class="entry-footer">
+<span class="tag-links">タグ: <a href="http://www.yusukezzz.net/archives/tag/tmux" rel="tag">tmux</a></span>
+</footer> 
+</article>
 <article id="post-22" class="post-22 post type-post status-publish format-standard hentry category-uncategorized tag-php tag-wordpress">
 <header>
 <h2 class="entry-title"><a href="http://www.yusukezzz.net/archives/22" title="静的サイトジェネレーターを試して wordpress に戻ってみた話" rel="bookmark">静的サイトジェネレーターを試して wordpress に戻ってみた話</a></h2> <section class="entry-meta">
@@ -45,7 +72,7 @@
 本末転倒気味なことを試してみることにした</p>
 <p>途中、静的サイトジェネレーターに慣れた方が良かったのでは…？と思わないでもなかったが、<br />
 一応それなりな環境が出来てしまったので作業の記録を残しておく</p>
-<p> <a href="http://www.yusukezzz.net/archives/22#more-22" class="more-link"><span aria-label="続きを読む 静的サイトジェネレーターを試して wordpress に戻ってみた話">(さらに&hellip;)</span></a></p>
+<p> <a href="http://www.yusukezzz.net/archives/22#more-22" class="more-link">続きを読む</a></p>
 <div class="entry-links"></div>
 </section>
 <footer class="entry-footer">

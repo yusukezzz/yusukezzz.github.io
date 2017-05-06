@@ -16,7 +16,7 @@ Writer is distributed under the terms of the GNU GPL
 
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{font-size:100%;font:inherit;padding:0;border:0;margin:0;vertical-align:baseline}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}table{border-collapse:collapse;border-spacing:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
 
-body{font-family:georgia,'times new roman',times,serif;font-size:16px;color:#777;line-height:normal;margin:5% 2.5%;background:#fff}
+body{font-family:san-serif;font-size:16px;color:#777;line-height:normal;margin:5% 2.5%;background:#fff}
 p{margin:20px 0}
 a{color:#4e4340}
 h1, h2, h3, h4, h5, h6, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a{font-family:helvetica,arial,sans-serif;font-weight:bold;color:#4e4340;text-decoration:none}
@@ -29,7 +29,7 @@ h5{font-size:18px}
 h6{font-size:16px}
 strong, dt{font-weight:bold}
 em, address, cite, var{font-style:italic}
-code{font-family:'courier new',courier,serif;color:#4e4340}
+code{font-family:monospace;color:#ddd;background-color:#272822;padding:0.2em;font-size:80%;}
 pre{overflow-x:auto;white-space:pre-wrap}
 hr{height:1px;color:#ccc;border:0 none;margin:30px 0;background-color:#ccc}
 .entry-content ul, .comment ul, .entry-content ol, .comment ol{font-family:helvetica,arial,sans-serif;margin-left:20px !important}

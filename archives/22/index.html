@@ -72,13 +72,22 @@
 <p>その他以下自分が気になった点と雑な改善方法を列挙しておく<br />
 （wordpress の知見がない人はあまりテーマやプラグインを弄らない方が良い）</p>
 <ul>
-<li>meta タグに不要なのが色々ある</li>
+<li>meta タグに不要なのが色々ある
+<ul>
 <li><a href="https://ja.wordpress.org/plugins/wp-head-cleaner/">wp&#95;head&#40;&#41; cleaner — WordPress プラグイン</a> などで削る</li>
-<li>jquery が不要なのに強制的に読み込まれている</li>
+</ul>
+</li>
+<li>jquery が不要なのに強制的に読み込まれている
+<ul>
 <li>テーマ上で <code>wp_head();</code> している箇所の前で <code>wp_deregister_script('jquery');</code> する</li>
 <li>テーマによっては jquery の存在を前提に jquery-plugin を使っている場合もあるので注意</li>
-<li>rss にコメントのフィードURLも含まれている</li>
+</ul>
+</li>
+<li>rss にコメントのフィードURLも含まれている
+<ul>
 <li><code>wp-includes/feed-rss2.php</code> を適当に編集する</li>
+</ul>
+</li>
 </ul>
 <h3>おまけ</h3>
 <p>静的ファイル生成時に git push まで自動で行う方法の例（プラグインを弄る）<br />

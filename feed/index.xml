@@ -11,7 +11,7 @@
 	<atom:link href="http://localhost/wordpress/feed" rel="self" type="application/rss+xml" />
 	<link>http://www.yusukezzz.net</link>
 	<description></description>
-	<lastBuildDate>Fri, 05 May 2017 12:59:17 +0000</lastBuildDate>
+	<lastBuildDate>Sat, 06 May 2017 00:20:46 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -33,7 +33,7 @@
 情報が少なそうだったので結局ローカルPCで wordpress を使って静的サイトを出力するという、<br />
 本末転倒気味なことを試してみることにした</p>
 <p>途中、静的サイトジェネレーターに慣れた方が良かったのでは…？と思わないでもなかったが、<br />
-一応それなりな環境が出来てしまったので作業の記録を残しておく</p>
+一応それなりな環境が出来てしまったので作業の記録を残しておく<span id="more-22"></span></p>
 <h3>注意点</h3>
 <ul>
 <li>当然ながら標準のコメント機能は完全に機能しなくなる</li>
@@ -47,7 +47,7 @@
 最新で揃えたければ適当に <code>brew install homebrew/php/php71 nginx mysql</code> など</p>
 <p>wordpress 自体の設定はパーマリンク設定を記事ごとに一意のURLを振る形式に必ず変更する<br />
 初期設定だとGETパラメータで記事IDを指定するため静的化出来ない</p>
-<p>プラグインは  <a href="https://ja.wordpress.org/plugins/simply-static/">Simply Static — WordPress プラグイン</a> を入れる<br />
+<p>プラグインは <a href="https://ja.wordpress.org/plugins/simply-static/">Simply Static — WordPress プラグイン</a> を入れる<br />
 設定は例えばこのサイトならばリンク先に絶対URLで http://www.yusukezzz.net/ を使用する<br />
 出力先は適当なローカルディレクトリで github pages の git リポジトリとして別途設定しておくと楽<br />
 これだけでひとまず静的サイト生成出来るので試しに実行してみる</p>
@@ -58,22 +58,13 @@
 <p>その他以下自分が気になった点と雑な改善方法を列挙しておく<br />
 （wordpress の知見がない人はあまりテーマやプラグインを弄らない方が良い）</p>
 <ul>
-<li>meta タグに不要なのが色々ある
-<ul>
+<li>meta タグに不要なのが色々ある</li>
 <li><a href="https://ja.wordpress.org/plugins/wp-head-cleaner/">wp&#95;head&#40;&#41; cleaner — WordPress プラグイン</a> などで削る</li>
-</ul>
-</li>
-<li>jquery が不要なのに強制的に読み込まれている
-<ul>
+<li>jquery が不要なのに強制的に読み込まれている</li>
 <li>テーマ上で <code>wp_head();</code> している箇所の前で <code>wp_deregister_script('jquery');</code> する</li>
 <li>テーマによっては jquery の存在を前提に jquery-plugin を使っている場合もあるので注意</li>
-</ul>
-</li>
-<li>rss にコメントのフィードURLも含まれている
-<ul>
+<li>rss にコメントのフィードURLも含まれている</li>
 <li><code>wp-includes/feed-rss2.php</code> を適当に編集する</li>
-</ul>
-</li>
 </ul>
 <h3>おまけ</h3>
 <p>静的ファイル生成時に git push まで自動で行う方法の例（プラグインを弄る）<br />

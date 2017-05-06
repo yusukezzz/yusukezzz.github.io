@@ -44,57 +44,7 @@
 情報が少なそうだったので結局ローカルPCで wordpress を使って静的サイトを出力するという、<br />
 本末転倒気味なことを試してみることにした</p>
 <p>途中、静的サイトジェネレーターに慣れた方が良かったのでは…？と思わないでもなかったが、<br />
-一応それなりな環境が出来てしまったので作業の記録を残しておく</p>
-<h3>注意点</h3>
-<ul>
-<li>当然ながら標準のコメント機能は完全に機能しなくなる</li>
-<li>wordpress 上で記事を削除しても出力済みの静的ファイルまでは消してくれないので対応が必要</li>
-<li>タグやカテゴリにマルチバイト文字を使っていると正しくリンクされない</li>
-<li><strong>静的ファイルの出力が非常に遅い（全てのサイト内ページにHTTPリクエストを投げてHTML化しているため）</strong></li>
-</ul>
-<h3>設定方法</h3>
-<p>wordpress の詳細なインストール方法は割愛するが、<br />
-動けばいいので osx なら標準で apache, php はインストールされているため mysql だけ用意すれば良い<br />
-最新で揃えたければ適当に <code>brew install homebrew/php/php71 nginx mysql</code> など</p>
-<p>wordpress 自体の設定はパーマリンク設定を記事ごとに一意のURLを振る形式に必ず変更する<br />
-初期設定だとGETパラメータで記事IDを指定するため静的化出来ない</p>
-<p>プラグインは  <a href="https://ja.wordpress.org/plugins/simply-static/">Simply Static — WordPress プラグイン</a> を入れる<br />
-設定は例えばこのサイトならばリンク先に絶対URLで http://www.yusukezzz.net を使用する<br />
-出力先は適当なローカルディレクトリで github pages の git リポジトリとして別途設定しておくと楽<br />
-これだけでひとまず静的サイト生成出来るので試しに実行してみる</p>
-<h3>ダイエット</h3>
-<p>あとは git push するだけだが、<br />
-恐らく余分なファイルや表示が含まれているので削りたくなるだろう<br />
-出力後のファイルに不要なものが含まれていたらプラグイン設定からエクスクルードをよしなに設定しよう</p>
-<p>その他以下自分が気になった点と雑な改善方法を列挙しておく<br />
-（wordpress の知見がない人はあまりテーマやプラグインを弄らない方が良い）</p>
-<ul>
-<li>meta タグに不要なのが色々ある
-<ul>
-<li><a href="https://ja.wordpress.org/plugins/wp-head-cleaner/">wp&#95;head&#40;&#41; cleaner — WordPress プラグイン</a> などで削る</li>
-</ul>
-</li>
-<li>jquery が不要なのに強制的に読み込まれている
-<ul>
-<li>テーマ上で <code>wp_head();</code> している箇所の前で <code>wp_deregister_script('jquery');</code> する</li>
-<li>テーマによっては jquery の存在を前提に jquery-plugin を使っている場合もあるので注意</li>
-</ul>
-</li>
-<li>rss にコメントのフィードURLも含まれている
-<ul>
-<li><code>wp-includes/feed-rss2.php</code> を適当に編集する</li>
-</ul>
-</li>
-</ul>
-<h3>おまけ</h3>
-<p>静的ファイル生成時に git push まで自動で行う方法の例（プラグインを弄る）<br />
-本当に雑なやり方なので全くおすすめしない</p>
-<p>静的ファイル生成後の処理で、<br />
-<code>/wp-content/plugins/simply-static/includes/tasks/class-ss-wrapup-task.php</code> ファイルの<br />
-<code>perform</code> メソッド内で push 操作を行う<br />
-例えば<br />
-<code>exec("cd /path/to/your.github.io; git add -A; git commit -m \"update\"; git push");</code><br />
-など</p>
+一応それなりな環境が出来てしまったので作業の記録を残しておく <a href="http://www.yusukezzz.net/archives/22#more-22" class="more-link"><span aria-label="続きを読む 静的サイトジェネレーターを試して wordpress に戻ってみた話">(さらに&hellip;)</span></a></p>
 <div class="entry-links"></div>
 </section>
 <footer class="entry-footer">

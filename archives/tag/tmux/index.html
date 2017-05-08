@@ -68,7 +68,7 @@ unbind-key -T copy-mode-vi ]         ;   bind-key -T copy-mode-vi ] send-keys -X
 document.addEventListener("DOMContentLoaded", function() {
     hljs.initHighlightingOnLoad();
 });
-window.addEventListener("load", function() {
+requestAnimationFrame(function() {
     var l = document.createElement('link');
     l.rel = 'stylesheet';
     l.href = 'https://www.yusukezzz.net/wp-content/highlightjs/monokai.css';

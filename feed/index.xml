@@ -9,7 +9,7 @@
 <channel>
 	<title>yusukezzz weblog</title>
 	<atom:link href="http://localhost/wordpress/feed" rel="self" type="application/rss+xml" />
-	<link>http://www.yusukezzz.net</link>
+	<link>https://www.yusukezzz.net</link>
 	<description></description>
 	<lastBuildDate>Sat, 06 May 2017 16:05:07 +0000</lastBuildDate>
 	<language>ja</language>
@@ -18,13 +18,13 @@
 	<generator>https://wordpress.org/?v=4.7.4</generator>
 	<item>
 		<title>tmux 2.4 で vi 風キーバインドが invalid or unknown command と言われる</title>
-		<link>http://www.yusukezzz.net/archives/46</link>
+		<link>https://www.yusukezzz.net/archives/46</link>
 		<pubDate>Sat, 06 May 2017 16:05:07 +0000</pubDate>
 		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
 				<category><![CDATA[uncategorized]]></category>
 		<category><![CDATA[tmux]]></category>
 
-		<guid isPermaLink="false">http://www.yusukezzz.net/?p=46</guid>
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=46</guid>
 		<description><![CDATA[起動時に invalid or unknown command: bind-key -t vi-copy v  [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>起動時に</p>
 <p><code>invalid or unknown command: bind-key -t vi-copy v begin-selection</code></p>
@@ -42,14 +42,14 @@ unbind-key -T copy-mode-vi ]         ;   bind-key -T copy-mode-vi ] send-keys -X
 			</item>
 		<item>
 		<title>静的サイトジェネレーターを試して wordpress に戻ってみた話</title>
-		<link>http://www.yusukezzz.net/archives/22</link>
+		<link>https://www.yusukezzz.net/archives/22</link>
 		<pubDate>Fri, 05 May 2017 12:52:12 +0000</pubDate>
 		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
 				<category><![CDATA[uncategorized]]></category>
 		<category><![CDATA[php]]></category>
 		<category><![CDATA[wordpress]]></category>
 
-		<guid isPermaLink="false">http://www.yusukezzz.net/?p=22</guid>
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=22</guid>
 		<description><![CDATA[これまで jekyll, middleman, hugo などの静的サイトジェネレーターを試してきたけど、 ど [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>これまで jekyll, middleman, hugo などの静的サイトジェネレーターを試してきたけど、<br />
 どうにも CLI で編集・管理する作業に慣れず長続きしなかった</p>
@@ -113,13 +113,13 @@ unbind-key -T copy-mode-vi ]         ;   bind-key -T copy-mode-vi ] send-keys -X
 			</item>
 		<item>
 		<title>Hello world</title>
-		<link>http://www.yusukezzz.net/archives/6</link>
-		<comments>http://www.yusukezzz.net/archives/6#respond</comments>
+		<link>https://www.yusukezzz.net/archives/6</link>
+		<comments>https://www.yusukezzz.net/archives/6#respond</comments>
 		<pubDate>Wed, 03 May 2017 16:02:27 +0000</pubDate>
 		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
 				<category><![CDATA[uncategorized]]></category>
 
-		<guid isPermaLink="false">http://www.yusukezzz.net/?p=6</guid>
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=6</guid>
 		<description><![CDATA[test echo "Hello world!";]]></description>
 				<content:encoded><![CDATA[<h1>test</h1>
 <pre><code class="php">echo "Hello world!";

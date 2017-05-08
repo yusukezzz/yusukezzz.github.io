@@ -11,7 +11,7 @@
 	<atom:link href="http://localhost/wordpress/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net</link>
 	<description></description>
-	<lastBuildDate>Sat, 06 May 2017 16:05:07 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 08 May 2017 11:44:30 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -73,9 +73,10 @@ unbind-key -T copy-mode-vi ]         ;   bind-key -T copy-mode-vi ] send-keys -X
 <p>wordpress 自体の設定はパーマリンク設定を記事ごとに一意のURLを振る形式に必ず変更する<br />
 初期設定だとGETパラメータで記事IDを指定するため静的化出来ない</p>
 <p>プラグインは <a href="https://ja.wordpress.org/plugins/simply-static/">Simply Static — WordPress プラグイン</a> を入れる<br />
-設定は例えばこのサイトならばリンク先に絶対URLで http://www.yusukezzz.net/ を使用する<br />
+設定は例えばこのサイトならばリンク先に絶対URLで https://www.yusukezzz.net/ を使用する<br />
 出力先は適当なローカルディレクトリで github pages の git リポジトリとして別途設定しておくと楽<br />
 これだけでひとまず静的サイト生成出来るので試しに実行してみる</p>
+<p>ちなみにこの blog のソースは <a href="https://github.com/yusukezzz/yusukezzz.github.io">yusukezzz/yusukezzz&#46;github&#46;io</a> で見ることが出来る</p>
 <h3>ダイエット</h3>
 <p>あとは git push するだけだが、<br />
 恐らく余分なファイルや表示が含まれているので削りたくなるだろう<br />

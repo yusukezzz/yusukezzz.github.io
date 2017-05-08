@@ -21,18 +21,6 @@
  <!-- Misc. tags -->
 <!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
 
-<script src="https://www.yusukezzz.net/wp-content/highlightjs/highlight.pack.js" defer></script>
-<script>
-requestAnimationFrame(function() {
-    var l = document.createElement('link');
-    l.rel = 'stylesheet';
-    l.href = 'https://www.yusukezzz.net/wp-content/highlightjs/monokai.css';
-    document.head.appendChild(l);
-});
-document.addEventListener("DOMContentLoaded", function() {
-    hljs.initHighlightingOnLoad();
-});
-</script>
 </head>
 <body class="post-template-default single single-post postid-22 single-format-standard">
 <div id="wrapper" class="hfeed">
@@ -150,5 +138,17 @@ s.setAttribute('data-timestamp', +new Date());
 &copy; 2017 yusukezzz weblog</div>
 </footer>
 </div>
+<script src="https://www.yusukezzz.net/wp-content/highlightjs/highlight.pack.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    hljs.initHighlightingOnLoad();
+});
+window.addEventListener("load", function() {
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = 'https://www.yusukezzz.net/wp-content/highlightjs/monokai.css';
+    document.head.appendChild(l);
+});
+</script>
 </body>
 </html>

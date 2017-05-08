@@ -18,9 +18,14 @@
  <!-- Misc. tags -->
 <!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
 
-<link rel="stylesheet" href="https://www.yusukezzz.net/wp-content/highlightjs/monokai.css">
 <script src="https://www.yusukezzz.net/wp-content/highlightjs/highlight.pack.js" defer></script>
 <script>
+requestAnimationFrame(function() {
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = 'https://www.yusukezzz.net/wp-content/highlightjs/monokai.css';
+    document.head.appendChild(l);
+});
 document.addEventListener("DOMContentLoaded", function() {
     hljs.initHighlightingOnLoad();
 });

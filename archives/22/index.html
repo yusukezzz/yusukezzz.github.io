@@ -14,7 +14,7 @@
  <!-- Facebook Open Graph -->
   <meta property="og:title" content="静的サイトジェネレーターを試して wordpress に戻ってみた話"/>
   <meta property="og:url" content="https://www.yusukezzz.net/archives/22"/>
-  <meta property="og:description" content="これまで jekyll, middleman, hugo などの静的サイトジェネレーターを試してきたけど、どうにも CLI で編集・管理する作業に慣れず長続きしなかった調べてみると GUI を持ったものもいくつか存在したが情報が少なそうだったので結局ローカルPCで wordpress を使って静的サイトを出力するという、本末転倒気味なことを試してみることにした途中、静的サイトジェネレーターに慣れた方が良かったのでは…？と思わないでもなかったが、一応それなりな環境が出来てしまったので作業の記録を残しておく注意点当然ながら標準のコメント機能は完全に機能しなくなるwordpre"/>
+  <meta property="og:description" content="これまで jekyll, middleman, hugo などの静的サイトジェネレーターを試してきたけど、どうにも CLI で編集・管理する作業に慣れず長続きしなかった調べてみると GUI を持ったものもいくつか存在したが情報が少なそうだったので結局ローカルPCで wordpress を使って静的サイトを出力するという、本末転倒気味なことを試してみることにした途中、静的サイトジェネレーターに慣れた方が良かったのでは…？と思わないでもなかったが、一応それなりな環境が出来てしまったので作業の記録を残しておく注意点当然ながら標準のコメント機能は完全に機能しなくなるwordpr"/>
  <!-- Google+ / Schema.org -->
  <!-- Twitter Cards -->
  <!-- SEO -->
@@ -41,8 +41,8 @@
 </section>
 </header>
 <section class="entry-content">
-<p>これまで jekyll, middleman, hugo などの静的サイトジェネレーターを試してきたけど、どうにも CLI で編集・管理する作業に慣れず長続きしなかった<br />
-調べてみると GUI を持ったものもいくつか存在したが情報が少なそうだったので結局ローカルPCで wordpress を使って静的サイトを出力するという、本末転倒気味なことを試してみることにした</p>
+<p>これまで jekyll, middleman, hugo などの静的サイトジェネレーターを試してきたけど、どうにも CLI で編集・管理する作業に慣れず長続きしなかった</p>
+<p>調べてみると GUI を持ったものもいくつか存在したが情報が少なそうだったので結局ローカルPCで wordpress を使って静的サイトを出力するという、本末転倒気味なことを試してみることにした</p>
 <p>途中、静的サイトジェネレーターに慣れた方が良かったのでは…？と思わないでもなかったが、一応それなりな環境が出来てしまったので作業の記録を残しておく</p>
 <p><span id="more-22"></span></p>
 <h3>注意点</h3>
@@ -54,7 +54,9 @@
 </ul>
 <h3>設定方法</h3>
 <p>wordpress の詳細なインストール方法は割愛するが、動けばいいので osx なら標準で apache, php はインストールされているため mysql だけ用意すれば良い<br />
-最新で揃えたければ適当に <code>brew install homebrew/php/php71 nginx mysql</code> など</p>
+最新で揃えたければ適当に<br />
+<code>brew install homebrew/php/php71 nginx mysql</code><br />
+など</p>
 <p>wordpress 自体の設定はパーマリンク設定を記事ごとに一意のURLを振る形式に必ず変更する<br />
 初期設定だとGETパラメータで記事IDを指定するため静的化出来ない</p>
 <p>プラグインは <a href="https://ja.wordpress.org/plugins/simply-static/">Simply Static — WordPress プラグイン</a> を入れる<br />

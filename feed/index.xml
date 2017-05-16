@@ -11,12 +11,43 @@
 	<atom:link href="http://localhost/wordpress/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net</link>
 	<description></description>
-	<lastBuildDate>Tue, 09 May 2017 06:01:34 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 16 May 2017 14:55:20 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.7.4</generator>
 	<item>
+		<title>無料で使える画像リサイズAPI</title>
+		<link>https://www.yusukezzz.net/archives/55</link>
+		<pubDate>Tue, 16 May 2017 14:55:20 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[free]]></category>
+		<category><![CDATA[image]]></category>
+
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=55</guid>
+		<description><![CDATA[Android アプリで使うために指定した url の画像をリサイズして返してくれるAPIを探したところ、2つ [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Android アプリで使うために指定した url の画像をリサイズして返してくれるAPIを探したところ、2つ見つけることが出来た<br />
+しかもどちらも無料で利用でき、 https にも対応している</p>
+<p><span id="more-55"></span></p>
+<p><a href="http://zimage.io/">Zimage – Images, delivered fast&#46;</a></p>
+<p><a href="http://rsz.io/">RSZ&#46;IO &#45; a free responsive image service</a></p>
+<p>使い方はこんな感じ</p>
+<p>http://edge.zimage.io/?url=https://s3-us-west-2.amazonaws.com/stllc/zimage/images/ferrari.png&#038;w=288</p>
+<p>http://rsz.io/s3-us-west-2.amazonaws.com/stllc/zimage/images/ferrari.png?width=200</p>
+<p>リサイズ機能における両者の差はほとんどないように見えるが、 zimage.io は作者が<a href="http://docs.zimage.io/faq/">FAQ</a>で述べている通り商用利用を見越した作りになっているようだ</p>
+<p>どちらも <a href="https://github.com/jcupitt/libvips">jcupitt/libvips</a> を使っているためリサイズ結果は同等のはず</p>
+<p>zimage.io は有料プランが準備中であり、SLAも定義されているのが特徴的（無料版は 99.95% とされている）<br />
+rsz.io はこの記事執筆時点で直近112日以内のダウンタイムは約1時間であり、稼働率は 99.963% であると記載されている（ただし保証するという旨は一切書かれていない）</p>
+<p>最大の違いはキャッシュの有無で、 zimage.io はリサイズ結果をキャッシュしてくれるため1歩リードしている<br />
+運営者が twitter をやっていて動向が伺えるのも良い <a href="https://twitter.com/davidbyttow">David Byttow <img src="https://s.w.org/images/core/emoji/2.2.1/72x72/1f44a.png" alt="👊" class="wp-smiley" style="height: 1em; max-height: 1em;" />&#40;@davidbyttow&#41;さん &#124; Twitter</a><br />
+便利なので有料プランが軌道にのって末永く存続してくれることを祈るばかりである</p>
+<p>こうして書くと zimage.io が完全に上位互換に見えるが、将来性が不透明なのも確か<br />
+rsz.io はそもそもマネタイズの意思が見えなくてもはや不気味なのだけど、少なくとも2014年ごろから継続して稼働しているようだ</p>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>tmux 2.4 で vi 風キーバインドが invalid or unknown command と言われる</title>
 		<link>https://www.yusukezzz.net/archives/46</link>
 		<pubDate>Sat, 06 May 2017 16:05:07 +0000</pubDate>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<link rel="stylesheet" type="text/css" href="https://www.yusukezzz.net/wp-content/themes/writer/style.css" />
+<link rel="alternate" type="application/rss+xml" title="Yusukezzz weblog &raquo; フィード" href="https://www.yusukezzz.net/feed" />
+<title>無料で使える画像リサイズAPI &#8211; yusukezzz weblog</title>
+<link rel='prev' title='tmux 2.4 で vi 風キーバインドが invalid or unknown command と言われる' href='https://www.yusukezzz.net/archives/46' />
+<link rel="canonical" href="https://www.yusukezzz.net/archives/55" />
+
+<!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
+ <!-- Facebook Open Graph -->
+  <meta property="og:title" content="無料で使える画像リサイズAPI"/>
+  <meta property="og:url" content="https://www.yusukezzz.net/archives/55"/>
+  <meta property="og:description" content="Android アプリで使うために指定した url の画像をリサイズして返してくれるAPIを探したところ、2つ見つけることが出来たしかもどちらも無料で利用でき、 https にも対応しているZimage – Images, delivered fast&#046;RSZ&#046;IO &#045; a free responsive image service使い方はこんな感じhttp://edge.zimage.io/?url=https://s3-us-west-2.amazonaws.com/stllc/zimage/images/ferrari.png&amp;w=2"/>
+ <!-- Google+ / Schema.org -->
+ <!-- Twitter Cards -->
+ <!-- SEO -->
+ <!-- Misc. tags -->
+<!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
+
+</head>
+<body class="post-template-default single single-post postid-55 single-format-standard">
+<div id="wrapper" class="hfeed">
+<header id="header" role="banner">
+<section id="branding">
+<div id="site-title"><a href="https://www.yusukezzz.net/" title="yusukezzz weblog" rel="home">yusukezzz weblog</a></div>
+<div id="site-description"></div>
+<div><a href="https://twitter.com/yusukezzz">twitter</a> | <a href="https://github.com/yusukezzz">github</a></div>
+</section>
+</header>
+<div id="container"><section id="content" role="main">
+<article id="post-55" class="post-55 post type-post status-publish format-standard hentry category-uncategorized tag-api tag-free tag-image">
+<header>
+<h1 class="entry-title"><a href="https://www.yusukezzz.net/archives/55" title="無料で使える画像リサイズAPI" rel="bookmark">無料で使える画像リサイズAPI</a></h1> <section class="entry-meta">
+<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
+<span class="meta-sep"> | </span>
+<span class="entry-date">2017-05-16</span>
+</section>
+</header>
+<section class="entry-content">
+<p>Android アプリで使うために指定した url の画像をリサイズして返してくれるAPIを探したところ、2つ見つけることが出来た<br />
+しかもどちらも無料で利用でき、 https にも対応している</p>
+<p><span id="more-55"></span></p>
+<p><a href="http://zimage.io/">Zimage – Images, delivered fast&#46;</a></p>
+<p><a href="http://rsz.io/">RSZ&#46;IO &#45; a free responsive image service</a></p>
+<p>使い方はこんな感じ</p>
+<p>http://edge.zimage.io/?url=https://s3-us-west-2.amazonaws.com/stllc/zimage/images/ferrari.png&#038;w=288</p>
+<p>http://rsz.io/s3-us-west-2.amazonaws.com/stllc/zimage/images/ferrari.png?width=200</p>
+<p>リサイズ機能における両者の差はほとんどないように見えるが、 zimage.io は作者が<a href="http://docs.zimage.io/faq/">FAQ</a>で述べている通り商用利用を見越した作りになっているようだ</p>
+<p>どちらも <a href="https://github.com/jcupitt/libvips">jcupitt/libvips</a> を使っているためリサイズ結果は同等のはず</p>
+<p>zimage.io は有料プランが準備中であり、SLAも定義されているのが特徴的（無料版は 99.95% とされている）<br />
+rsz.io はこの記事執筆時点で直近112日以内のダウンタイムは約1時間であり、稼働率は 99.963% であると記載されている（ただし保証するという旨は一切書かれていない）</p>
+<p>最大の違いはキャッシュの有無で、 zimage.io はリサイズ結果をキャッシュしてくれるため1歩リードしている<br />
+運営者が twitter をやっていて動向が伺えるのも良い <a href="https://twitter.com/davidbyttow">David Byttow 👊&#40;@davidbyttow&#41;さん &#124; Twitter</a><br />
+便利なので有料プランが軌道にのって末永く存続してくれることを祈るばかりである</p>
+<p>こうして書くと zimage.io が完全に上位互換に見えるが、将来性が不透明なのも確か<br />
+rsz.io はそもそもマネタイズの意思が見えなくてもはや不気味なのだけど、少なくとも2014年ごろから継続して稼働しているようだ</p>
+<div class="entry-links"></div>
+</section>
+<footer class="entry-footer">
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/api" rel="tag">api</a>, <a href="https://www.yusukezzz.net/archives/tag/free" rel="tag">free</a>, <a href="https://www.yusukezzz.net/archives/tag/image" rel="tag">image</a></span>
+</footer> 
+</article>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = "https://www.yusukezzz.net/archives/55";
+this.page.identifier = "55";
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://yusukezzzblog.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><footer class="footer">
+<nav id="nav-below" class="navigation" role="navigation">
+<div class="nav-previous"><a href="https://www.yusukezzz.net/archives/46" rel="prev"><span class="meta-nav">&larr;</span> tmux 2.4 で vi 風キーバインドが invalid or unknown command と言われる</a></div>
+<div class="nav-next"></div>
+</nav>
+</footer>
+</section>
+</div>
+<footer id="footer" role="contentinfo">
+<div id="copyright">
+&copy; 2017 yusukezzz weblog</div>
+</footer>
+</div>
+<script src="https://www.yusukezzz.net/wp-content/highlightjs/highlight.pack.js" defer></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    hljs.initHighlightingOnLoad();
+});
+requestAnimationFrame(function() {
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = 'https://www.yusukezzz.net/wp-content/highlightjs/monokai.css';
+    document.head.appendChild(l);
+});
+</script>
+</body>
+</html>

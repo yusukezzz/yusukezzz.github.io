@@ -5,13 +5,15 @@
 <meta name="viewport" content="width=device-width" />
 <link rel="stylesheet" type="text/css" href="https://www.yusukezzz.net/wp-content/themes/writer/style.css" />
 <link rel="alternate" type="application/rss+xml" title="Yusukezzz weblog &raquo; フィード" href="https://www.yusukezzz.net/feed" />
-<title>php &#8211; yusukezzz weblog</title>
+<title>Laravel の Input 値が空文字列だったら null に変換する機能を無効にする &#8211; yusukezzz weblog</title>
+<link rel='prev' title='無料で使える画像リサイズAPI' href='https://www.yusukezzz.net/archives/55' />
+<link rel="canonical" href="https://www.yusukezzz.net/archives/70" />
 
 <!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
  <!-- Facebook Open Graph -->
-  <meta property="og:title" content="php"/>
-  <meta property="og:url" content="https://www.yusukezzz.net/archives/tag/php"/>
-  <meta property="og:description" content="php"/>
+  <meta property="og:title" content="Laravel の Input 値が空文字列だったら null に変換する機能を無効にする"/>
+  <meta property="og:url" content="https://www.yusukezzz.net/archives/70"/>
+  <meta property="og:description" content="Model のフィールドに空文字列を渡しているつもりが mysql 側から NonNull なカラムに Null が渡されたとエラーが返ってきてこの機能の存在に気づいたmiddleware は非常に便利だが、自分が実装・追加したわけではない処理に関してはこのような暗黙的な副作用があったりして中々厳しいHTTP Requests &#045; Laravel &#045; The PHP Framework For Web Artisansドキュメントにも書かれており、どうやら 5.4 からこの挙動がデフォルトになったようだ無効にするには AppHttpKernel クラスにある Conv"/>
  <!-- Google+ / Schema.org -->
  <!-- Twitter Cards -->
  <!-- SEO -->
@@ -19,7 +21,7 @@
 <!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
 
 </head>
-<body class="archive tag tag-php tag-2">
+<body class="post-template-default single single-post postid-70 single-format-standard">
 <div id="wrapper" class="hfeed">
 <header id="header" role="banner">
 <section id="branding">
@@ -43,7 +45,7 @@
 <div id="container"><section id="content" role="main">
 <article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-uncategorized tag-laravel tag-php">
 <header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/70" title="Laravel の Input 値が空文字列だったら null に変換する機能を無効にする" rel="bookmark">Laravel の Input 値が空文字列だったら null に変換する機能を無効にする</a></h2> <section class="entry-meta">
+<h1 class="entry-title"><a href="https://www.yusukezzz.net/archives/70" title="Laravel の Input 値が空文字列だったら null に変換する機能を無効にする" rel="bookmark">Laravel の Input 値が空文字列だったら null に変換する機能を無効にする</a></h1> <section class="entry-meta">
 <span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
 <span class="meta-sep"> | </span>
 <span class="entry-date">2017-09-20</span>
@@ -61,25 +63,31 @@ middleware は非常に便利だが、自分が実装・追加したわけでは
 <span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/laravel" rel="tag">laravel</a>, <a href="https://www.yusukezzz.net/archives/tag/php" rel="tag">php</a></span>
 </footer> 
 </article>
-<article id="post-22" class="post-22 post type-post status-publish format-standard hentry category-uncategorized tag-php tag-wordpress">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/22" title="静的サイトジェネレーターを試して wordpress に戻ってみた話" rel="bookmark">静的サイトジェネレーターを試して wordpress に戻ってみた話</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-05-05</span>
-</section>
-</header>
-<section class="entry-content">
-<p>これまで jekyll, middleman, hugo などの静的サイトジェネレーターを試してきたけど、どうにも CLI で編集・管理する作業に慣れず長続きしなかった</p>
-<p>調べてみると GUI を持ったものもいくつか存在したが情報が少なそうだったので結局ローカルPCで wordpress を使って静的サイトを出力するという、本末転倒気味なことを試してみることにした</p>
-<p>途中、静的サイトジェネレーターに慣れた方が良かったのでは…？と思わないでもなかったが、一応それなりな環境が出来てしまったので作業の記録を残しておく</p>
-<p> <a href="https://www.yusukezzz.net/archives/22#more-22" class="more-link">続きを読む</a></p>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/php" rel="tag">php</a>, <a href="https://www.yusukezzz.net/archives/tag/wordpress" rel="tag">wordpress</a></span>
-</footer> 
-</article>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = "https://www.yusukezzz.net/archives/70";
+this.page.identifier = "70";
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://yusukezzzblog.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><footer class="footer">
+<nav id="nav-below" class="navigation" role="navigation">
+<div class="nav-previous"><a href="https://www.yusukezzz.net/archives/55" rel="prev"><span class="meta-nav">&larr;</span> 無料で使える画像リサイズAPI</a></div>
+<div class="nav-next"></div>
+</nav>
+</footer>
 </section>
 </div>
 <footer id="footer" role="contentinfo">

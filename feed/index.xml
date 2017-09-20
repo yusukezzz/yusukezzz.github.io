@@ -8,15 +8,33 @@
 
 <channel>
 	<title>yusukezzz weblog</title>
-	<atom:link href="http://localhost/wordpress/feed" rel="self" type="application/rss+xml" />
-	<link>https://www.yusukezzz.net</link>
+	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
+	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Tue, 16 May 2017 15:11:49 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 20 Sep 2017 05:02:39 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=4.7.5</generator>
+	<generator>https://wordpress.org/?v=4.7.6</generator>
 	<item>
+		<title>Laravel の Input 値が空文字列だったら null に変換する機能を無効にする</title>
+		<link>https://www.yusukezzz.net/archives/70</link>
+		<pubDate>Wed, 20 Sep 2017 04:38:22 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[laravel]]></category>
+		<category><![CDATA[php]]></category>
+
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=70</guid>
+		<description><![CDATA[Model のフィールドに空文字列を渡しているつもりが mysql 側から NonNull なカラムに Nul [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Model のフィールドに空文字列を渡しているつもりが mysql 側から NonNull なカラムに Null が渡されたとエラーが返ってきてこの機能の存在に気づいた<br />
+middleware は非常に便利だが、自分が実装・追加したわけではない処理に関してはこのような暗黙的な副作用があったりして中々厳しい</p>
+<p><a href="https://laravel.com/docs/5.5/requests#input-trimming-and-normalization">HTTP Requests &#45; Laravel &#45; The PHP Framework For Web Artisans</a><br />
+ドキュメントにも書かれており、どうやら 5.4 からこの挙動がデフォルトになったようだ<br />
+無効にするには <code>App\Http\Kernel</code> クラスにある <code>ConvertEmptyStringsToNull</code> middleware をコメントアウトすれば良い</p>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>無料で使える画像リサイズAPI</title>
 		<link>https://www.yusukezzz.net/archives/55</link>
 		<pubDate>Tue, 16 May 2017 14:55:20 +0000</pubDate>
@@ -26,7 +44,7 @@
 		<category><![CDATA[free]]></category>
 		<category><![CDATA[image]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=55</guid>
+		<guid isPermaLink="false">http://localhost:8080/wordpress/?p=55</guid>
 		<description><![CDATA[Android アプリで使うために指定した url の画像をリサイズして返してくれるAPIを探したところ、2つ [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>Android アプリで使うために指定した url の画像をリサイズして返してくれるAPIを探したところ、2つ見つけることが出来た<br />
 しかもどちらも無料で利用でき、 https にも対応している<br />
@@ -56,7 +74,7 @@ rsz.io はそもそもマネタイズの意思が見えなくてもはや不気�
 				<category><![CDATA[uncategorized]]></category>
 		<category><![CDATA[tmux]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=46</guid>
+		<guid isPermaLink="false">http://localhost:8080/wordpress/?p=46</guid>
 		<description><![CDATA[起動時に invalid or unknown command: bind-key -t vi-copy v  [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>起動時に</p>
 <p><code>invalid or unknown command: bind-key -t vi-copy v begin-selection</code></p>
@@ -81,7 +99,7 @@ unbind-key -T copy-mode-vi ]         ;   bind-key -T copy-mode-vi ] send-keys -X
 		<category><![CDATA[php]]></category>
 		<category><![CDATA[wordpress]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=22</guid>
+		<guid isPermaLink="false">http://localhost:8080/wordpress/?p=22</guid>
 		<description><![CDATA[これまで jekyll, middleman, hugo などの静的サイトジェネレーターを試してきたけど、どう [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>これまで jekyll, middleman, hugo などの静的サイトジェネレーターを試してきたけど、どうにも CLI で編集・管理する作業に慣れず長続きしなかった</p>
 <p>調べてみると GUI を持ったものもいくつか存在したが情報が少なそうだったので結局ローカルPCで wordpress を使って静的サイトを出力するという、本末転倒気味なことを試してみることにした</p>
@@ -148,7 +166,7 @@ unbind-key -T copy-mode-vi ]         ;   bind-key -T copy-mode-vi ] send-keys -X
 		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
 				<category><![CDATA[uncategorized]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=6</guid>
+		<guid isPermaLink="false">http://localhost:8080/wordpress/?p=6</guid>
 		<description><![CDATA[test echo "Hello world!";]]></description>
 				<content:encoded><![CDATA[<h1>test</h1>
 <pre><code class="php">echo "Hello world!";

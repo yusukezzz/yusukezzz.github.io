@@ -11,12 +11,71 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Wed, 20 Sep 2017 05:02:39 +0000</lastBuildDate>
+	<lastBuildDate>Sun, 01 Oct 2017 17:25:01 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.7.6</generator>
 	<item>
+		<title>vultr で ubuntu インストールして最初に行った設定</title>
+		<link>https://www.yusukezzz.net/archives/77</link>
+		<pubDate>Sun, 01 Oct 2017 17:25:01 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[ufw]]></category>
+		<category><![CDATA[vultr]]></category>
+
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=77</guid>
+		<description><![CDATA[SSD VPS Servers, Cloud Servers and Cloud Hosting by Vul [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="https://www.vultr.com/">SSD VPS Servers, Cloud Servers and Cloud Hosting by Vultr &#45; Vultr&#46;com</a> というサービスで ubuntu をインストールした時の記録</p>
+<p>2.5ドルのは空きがなかったので5ドルのプランにした<br />
+とはいえ東京でメモリ1GBのマシンがこの値段なら十分安い<br />
+ちなみに<a href="https://www.vultr.com/?ref=7199493">このリンク</a>から登録してもらうとお互いにクレジットがもらえる（ある程度実際に課金する必要はある）</p>
+<p>インストールしたのは ubuntu 16.04<br />
+web管理画面から作成を実行し、しばらくしてRUNNINGのステータスになるとアクセス可能になる<br />
+IPアドレスと root のパスワードも管理画面で確認可能</p>
+<h1>アカウント作成</h1>
+<p>最初は root しかいないので作業用アカウントを作成し sudo 出来るグループに追加しておく</p>
+<pre><code>adduser yusuke
+passwd yusuke
+gpasswd -a yusuke admin
+</code></pre>
+<p>作成したら ssh-copy-id などで公開鍵認証でのログインが出来るようにしておく<br />
+必ず鍵認証でアクセスが可能なことを確認しておくこと</p>
+<h1>root, パスワードでのログイン禁止設定</h1>
+<p><code>sudo vim /etc/ssh/sshd_config</code> して　PermitRootLogin, PasswordAuthentication を no にする<br />
+<code>sudo service sshd restart</code> する<br />
+この時点でパスワードログイン出来ないことを確認しておくこと</p>
+<h1>ファイアウォール設定</h1>
+<p>ubuntu では iptables を直接触らずに ufw というコマンドで設定していく<br />
+以下では ssh, http, https のみ許可している<br />
+参考：<a href="https://qiita.com/yoh-nak/items/46935af3c5c4036e93b3">ufwを使って簡単にファイアウォールを設定する &#45; Qiita</a></p>
+<pre><code>sudo ufw default deny
+sudo ufw allow 22
+sudo ufw allow 80
+sudo ufw allow 443
+sudo ufw enable
+sudo ufw reload
+</code></pre>
+<h1>aptitude のインストール</h1>
+<p>組み込みの apt-get でも十分だが、 aptitude の方が多少便利<br />
+具体的には関連パッケージの自動アンインストールをデフォルトでやってくれたりする<br />
+（autoremove を付ければ apt-get でも出来る）</p>
+<p><code>sudo apt-get install aptitude</code></p>
+<p>ついでに upgrade して再起動しておく</p>
+<pre><code>sudo aptitude upgrade
+sudo reboot
+</code></pre>
+<h1>怪しいログイン試行をブロック</h1>
+<p>denyhosts というサービスをインストールするとログインに失敗したホストを自動的に /etc/hosts.deny に追加してくれる<br />
+<code>sudo aptitude install denyhosts</code><br />
+設定は<a href="http://d.conma.me/entry/20080126/1201329875">Denyhosts導入メモ &#45; まめ畑</a>などを参考に<br />
+<code>sudo service denyhosts restart</code> で設定反映</p>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>Laravel の Input 値が空文字列だったら null に変換する機能を無効にする</title>
 		<link>https://www.yusukezzz.net/archives/70</link>
 		<pubDate>Wed, 20 Sep 2017 04:38:22 +0000</pubDate>

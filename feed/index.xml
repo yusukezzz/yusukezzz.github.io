@@ -11,7 +11,7 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Sun, 01 Oct 2017 17:25:01 +0000</lastBuildDate>
+	<lastBuildDate>Sun, 01 Oct 2017 17:28:50 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -36,7 +36,7 @@
 <p>インストールしたのは ubuntu 16.04<br />
 web管理画面から作成を実行し、しばらくしてRUNNINGのステータスになるとアクセス可能になる<br />
 IPアドレスと root のパスワードも管理画面で確認可能</p>
-<h1>アカウント作成</h1>
+<h3>アカウント作成</h3>
 <p>最初は root しかいないので作業用アカウントを作成し sudo 出来るグループに追加しておく</p>
 <pre><code>adduser yusuke
 passwd yusuke
@@ -44,11 +44,11 @@ gpasswd -a yusuke admin
 </code></pre>
 <p>作成したら ssh-copy-id などで公開鍵認証でのログインが出来るようにしておく<br />
 必ず鍵認証でアクセスが可能なことを確認しておくこと</p>
-<h1>root, パスワードでのログイン禁止設定</h1>
+<h3>root, パスワードでのログイン禁止設定</h3>
 <p><code>sudo vim /etc/ssh/sshd_config</code> して　PermitRootLogin, PasswordAuthentication を no にする<br />
 <code>sudo service sshd restart</code> する<br />
 この時点でパスワードログイン出来ないことを確認しておくこと</p>
-<h1>ファイアウォール設定</h1>
+<h3>ファイアウォール設定</h3>
 <p>ubuntu では iptables を直接触らずに ufw というコマンドで設定していく<br />
 以下では ssh, http, https のみ許可している<br />
 参考：<a href="https://qiita.com/yoh-nak/items/46935af3c5c4036e93b3">ufwを使って簡単にファイアウォールを設定する &#45; Qiita</a></p>
@@ -59,7 +59,7 @@ sudo ufw allow 443
 sudo ufw enable
 sudo ufw reload
 </code></pre>
-<h1>aptitude のインストール</h1>
+<h3>aptitude のインストール</h3>
 <p>組み込みの apt-get でも十分だが、 aptitude の方が多少便利<br />
 具体的には関連パッケージの自動アンインストールをデフォルトでやってくれたりする<br />
 （autoremove を付ければ apt-get でも出来る）</p>
@@ -68,7 +68,7 @@ sudo ufw reload
 <pre><code>sudo aptitude upgrade
 sudo reboot
 </code></pre>
-<h1>怪しいログイン試行をブロック</h1>
+<h3>怪しいログイン試行をブロック</h3>
 <p>denyhosts というサービスをインストールするとログインに失敗したホストを自動的に /etc/hosts.deny に追加してくれる<br />
 <code>sudo aptitude install denyhosts</code><br />
 設定は<a href="http://d.conma.me/entry/20080126/1201329875">Denyhosts導入メモ &#45; まめ畑</a>などを参考に<br />

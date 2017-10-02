@@ -11,7 +11,7 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Sun, 01 Oct 2017 17:28:50 +0000</lastBuildDate>
+	<lastBuildDate>Mon, 02 Oct 2017 04:40:17 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -73,6 +73,17 @@ sudo reboot
 <code>sudo aptitude install denyhosts</code><br />
 設定は<a href="http://d.conma.me/entry/20080126/1201329875">Denyhosts導入メモ &#45; まめ畑</a>などを参考に<br />
 <code>sudo service denyhosts restart</code> で設定反映</p>
+<h3>タイムゾーンをJSTにする</h3>
+<p>デフォルトはUTCなので日本時間に変更する</p>
+<pre><code>sudo timedatectl set-timezone Asia/Tokyo
+</code></pre>
+<p>時刻同期の設定もしておく</p>
+<pre><code>sudo aptitude install ntp
+sudo vim /etc/ntp.conf
+</code></pre>
+<p>末尾の方にある server に適当な国内 ntp サーバを設定する<br />
+<code>server ntp.nict.jp</code> など<br />
+<code>sudo service ntp restart</code> で反映</p>
 ]]></content:encoded>
 			</item>
 		<item>

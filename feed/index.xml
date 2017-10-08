@@ -11,7 +11,7 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Sun, 08 Oct 2017 03:39:07 +0000</lastBuildDate>
+	<lastBuildDate>Sun, 08 Oct 2017 03:43:10 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -32,7 +32,7 @@ Laravel アプリで <code>artisan config:cache</code> を行っていると .en
 また、アプリ内で env ヘルパー関数などから直接環境変数を参照しているとそもそも値が渡っていない<br />
 下記実装を見ると分かるが、 config キャッシュ済みの場合はそもそも .env のロード自体がスキップされるため</p>
 <p><a href="https://github.com/laravel/framework/blob/bd352a0d2ca93775fce8ef02365b03fc4fb8cbb0/src/Illuminate/Foundation/Bootstrap/LoadEnvironmentVariables.php#L20">framework/LoadEnvironmentVariables&#46;php#L20 at bd352a0d2ca93775fce8ef02365b03fc4fb8cbb0 · laravel/framework</a></p>
-<p>解決するには config を cache しない、又は env の値を config ファイルを経由して参照するよう徹底しデプロイごとに cache し直す</p>
+<p>解決するには config を cache しない、又は env の値を config ファイルを経由して参照するよう徹底し値の変更ごとに cache し直す</p>
 ]]></content:encoded>
 			</item>
 		<item>

@@ -11,12 +11,30 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Mon, 02 Oct 2017 04:40:17 +0000</lastBuildDate>
+	<lastBuildDate>Sun, 08 Oct 2017 03:28:11 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.7.6</generator>
 	<item>
+		<title>Laravel で .env の内容が反映されない場合</title>
+		<link>https://www.yusukezzz.net/archives/84</link>
+		<pubDate>Sun, 08 Oct 2017 03:28:11 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[laravel]]></category>
+		<category><![CDATA[php]]></category>
+
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=84</guid>
+		<description><![CDATA[Laravel アプリで artisan config:cache を行っていると .env を変更してもファ [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Laravel アプリで <code>artisan config:cache</code> を行っていると .env を変更してもファイルの内容が反映されない<br />
+また、アプリ内で env ヘルパー関数などから直接環境変数を参照しているとそもそも値が渡っていない<br />
+下記実装を見ると分かるが、 config キャッシュ済みの場合はそもそも .env のロード自体がスキップされるため</p>
+<p><a href="https://github.com/laravel/framework/blob/bd352a0d2ca93775fce8ef02365b03fc4fb8cbb0/src/Illuminate/Foundation/Bootstrap/LoadEnvironmentVariables.php#L20">framework/LoadEnvironmentVariables&#46;php#L20 at bd352a0d2ca93775fce8ef02365b03fc4fb8cbb0 · laravel/framework</a></p>
+<p>解決するには config を cache しない、又は env の値を config ファイルを経由して参照するよう徹底しデプロイごとに cache し直す</p>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>vultr で ubuntu インストールして最初に行った設定</title>
 		<link>https://www.yusukezzz.net/archives/77</link>
 		<pubDate>Sun, 01 Oct 2017 17:25:01 +0000</pubDate>

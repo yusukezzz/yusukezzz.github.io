@@ -53,7 +53,8 @@
 </section>
 </header>
 <section class="entry-content">
-<p>Laravel アプリで <code>artisan config:cache</code> を行っていると .env を変更してもファイルの内容が反映されない<br />
+<p><a href="https://laravel.com/docs/5.5/configuration#configuration-caching">公式マニュアル</a>にも記載があるが、<br />
+Laravel アプリで <code>artisan config:cache</code> を行っていると .env を変更してもファイルの内容が反映されない<br />
 また、アプリ内で env ヘルパー関数などから直接環境変数を参照しているとそもそも値が渡っていない<br />
 下記実装を見ると分かるが、 config キャッシュ済みの場合はそもそも .env のロード自体がスキップされるため</p>
 <p><a href="https://github.com/laravel/framework/blob/bd352a0d2ca93775fce8ef02365b03fc4fb8cbb0/src/Illuminate/Foundation/Bootstrap/LoadEnvironmentVariables.php#L20">framework/LoadEnvironmentVariables&#46;php#L20 at bd352a0d2ca93775fce8ef02365b03fc4fb8cbb0 · laravel/framework</a></p>

@@ -11,12 +11,43 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Sun, 08 Oct 2017 03:43:10 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 13 Oct 2017 14:51:52 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.7.6</generator>
 	<item>
+		<title>jvisualvm でリモート接続</title>
+		<link>https://www.yusukezzz.net/archives/90</link>
+		<pubDate>Fri, 13 Oct 2017 14:51:52 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[debug]]></category>
+		<category><![CDATA[java]]></category>
+		<category><![CDATA[jvisualvm]]></category>
+
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=90</guid>
+		<description><![CDATA[jdk をインストールすると付いてくる便利なプロファイラ jvisualvm でリモートサーバの java プ [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>jdk をインストールすると付いてくる便利なプロファイラ jvisualvm でリモートサーバの java プロセスに接続する方法についての覚書</p>
+<p>jvisualvm でリモート接続する方法は、<br />
+jstatd（これも jdk 組み込み）という java プロセスの監視ツールを経由する方法と JMX という仕様を利用する方法の2種類がある<br />
+今回はリモートサーバに jdk が入ってなかったので JMX でやる場合</p>
+<h3>JMX 起動オプション</h3>
+<p>リモートサーバで java アプリを起動する際に以下のオプションを指定しておく（以下は jdk8 の場合）<br />
+port は他で使われてなければ何でも良いが、同じ値を指定する<br />
+127.0.0.1 は環境に合わせて変える</p>
+<pre><code>-Dcom.sun.management.jmxremote.port=3333
+-Dcom.sun.management.jmxremote.rmi.port=3333
+-Dcom.sun.management.jmxremote.ssl=false
+-Dcom.sun.management.jmxremote.authenticate=false
+-Djava.rmi.server.hostname=127.0.0.1
+</code></pre>
+<p>今回接続する際は ssh のポートフォワーディングを利用した<br />
+<code>ssh -L 3333:127.0.0.1:3333 user@remote-server</code><br />
+などでリモートへの接続を開いておき jvisualvm から localhost:3333 に対して繋ぐ</p>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>Laravel で .env の内容が反映されない場合</title>
 		<link>https://www.yusukezzz.net/archives/84</link>
 		<pubDate>Sun, 08 Oct 2017 03:28:11 +0000</pubDate>

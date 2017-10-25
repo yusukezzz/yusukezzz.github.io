@@ -46,7 +46,7 @@ a img, input[type="image"]{border:0 none}
 img, video{max-width:100% !important;height:auto}
 #wrapper{max-width:960px;margin:0 auto}
 #header, .post{margin-bottom:50px}
-#footer{margin-top:150px;clear:both}
+#footer{text-align:center;margin-top:150px;clear:both}
 #site-title a, #site-title h1 a, #site-title h1{font-family:helvetica,arial,sans-serif;font-size:40px;font-weight:bold;color:#000;text-decoration:none;padding:0;margin:0}
 #site-title a:hover, #site-title h1 a:hover{text-decoration:none}
 #site-description{font-size:18px;color:#666;margin-top:15px}

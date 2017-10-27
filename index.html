@@ -45,6 +45,37 @@
 </section>
 </header>
 <div id="container"><section id="content" role="main">
+<article id="post-97" class="post-97 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-robolectric">
+<header>
+<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/97" title="Android Studio 3.0 で Robolectric 関連の変更に追従" rel="bookmark">Android Studio 3.0 で Robolectric 関連の変更に追従</a></h2> <section class="entry-meta">
+<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
+<span class="meta-sep"> | </span>
+<span class="entry-date">2017-10-27</span>
+</section>
+</header>
+<section class="entry-content">
+<p>先日 Android Studio 3.0 が正式にリリースされたので早速ダウンロードしてビルドしたら Robolectric のテストがコケるようになってしまった<br />
+<a href="http://robolectric.org/getting-started/">Getting Started &#124; Robolectric</a> に書いてある通りなのだけど以下の対応をしたら通るようになった<br />
+どうやらリソースパスを解決するAPIに変更があったらしい</p>
+<h3>1. testOptions の追加</h3>
+<p>app/build.gradle に以下の記述を追加する</p>
+<pre><code>android {
+  testOptions {
+    unitTests {
+      includeAndroidResources = true
+    }
+  }
+}
+</code></pre>
+<h3>2. BuildConfig の指定を止める</h3>
+<p>テストクラスに Robolectric の BuildConfig 指定がある場合は消す<br />
+<code>@Config(constants = BuildConfig.class)</code></p>
+<div class="entry-links"></div>
+</section>
+<footer class="entry-footer">
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/android" rel="tag">android</a>, <a href="https://www.yusukezzz.net/archives/tag/robolectric" rel="tag">robolectric</a></span>
+</footer> 
+</article>
 <article id="post-92" class="post-92 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-library">
 <header>
 <h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/92" title="chrome custom tabs の warmup" rel="bookmark">chrome custom tabs の warmup</a></h2> <section class="entry-meta">
@@ -190,26 +221,6 @@ sudo vim /etc/ntp.conf
 </section>
 <footer class="entry-footer">
 <span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/linux" rel="tag">linux</a>, <a href="https://www.yusukezzz.net/archives/tag/ubuntu" rel="tag">ubuntu</a>, <a href="https://www.yusukezzz.net/archives/tag/ufw" rel="tag">ufw</a>, <a href="https://www.yusukezzz.net/archives/tag/vultr" rel="tag">vultr</a></span>
-</footer> 
-</article>
-<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-uncategorized tag-laravel tag-php">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/70" title="Laravel の Input 値が空文字列だったら null に変換する機能を無効にする" rel="bookmark">Laravel の Input 値が空文字列だったら null に変換する機能を無効にする</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-09-20</span>
-</section>
-</header>
-<section class="entry-content">
-<p>Model のフィールドに空文字列を渡しているつもりが mysql 側から NonNull なカラムに Null が渡されたとエラーが返ってきてこの機能の存在に気づいた<br />
-middleware は非常に便利だが、自分が実装・追加したわけではない処理に関してはこのような暗黙的な副作用があったりして中々厳しい</p>
-<p><a href="https://laravel.com/docs/5.5/requests#input-trimming-and-normalization">HTTP Requests &#45; Laravel &#45; The PHP Framework For Web Artisans</a><br />
-ドキュメントにも書かれており、どうやら 5.4 からこの挙動がデフォルトになったようだ<br />
-無効にするには <code>App\Http\Kernel</code> クラスにある <code>ConvertEmptyStringsToNull</code> middleware をコメントアウトすれば良い</p>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/laravel" rel="tag">laravel</a>, <a href="https://www.yusukezzz.net/archives/tag/php" rel="tag">php</a></span>
 </footer> 
 </article>
 <nav id="nav-below" class="navigation" role="navigation">

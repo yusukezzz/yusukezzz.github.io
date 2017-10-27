@@ -45,6 +45,26 @@
 </section>
 </header>
 <div id="container"><section id="content" role="main">
+<article id="post-70" class="post-70 post type-post status-publish format-standard hentry category-uncategorized tag-laravel tag-php">
+<header>
+<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/70" title="Laravel の Input 値が空文字列だったら null に変換する機能を無効にする" rel="bookmark">Laravel の Input 値が空文字列だったら null に変換する機能を無効にする</a></h2> <section class="entry-meta">
+<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
+<span class="meta-sep"> | </span>
+<span class="entry-date">2017-09-20</span>
+</section>
+</header>
+<section class="entry-content">
+<p>Model のフィールドに空文字列を渡しているつもりが mysql 側から NonNull なカラムに Null が渡されたとエラーが返ってきてこの機能の存在に気づいた<br />
+middleware は非常に便利だが、自分が実装・追加したわけではない処理に関してはこのような暗黙的な副作用があったりして中々厳しい</p>
+<p><a href="https://laravel.com/docs/5.5/requests#input-trimming-and-normalization">HTTP Requests &#45; Laravel &#45; The PHP Framework For Web Artisans</a><br />
+ドキュメントにも書かれており、どうやら 5.4 からこの挙動がデフォルトになったようだ<br />
+無効にするには <code>App\Http\Kernel</code> クラスにある <code>ConvertEmptyStringsToNull</code> middleware をコメントアウトすれば良い</p>
+<div class="entry-links"></div>
+</section>
+<footer class="entry-footer">
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/laravel" rel="tag">laravel</a>, <a href="https://www.yusukezzz.net/archives/tag/php" rel="tag">php</a></span>
+</footer> 
+</article>
 <article id="post-55" class="post-55 post type-post status-publish format-standard hentry category-uncategorized tag-api tag-free tag-image">
 <header>
 <h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/55" title="無料で使える画像リサイズAPI" rel="bookmark">無料で使える画像リサイズAPI</a></h2> <section class="entry-meta">

@@ -8,16 +8,15 @@
 <link rel="alternate" type="application/rss+xml" title="Yusukezzz weblog &raquo; フィード" href="https://www.yusukezzz.net/feed" />
 <link rel="alternate" type="application/xml" title="sitemap" href="https://www.yusukezzz.net/sitemap.xml" />
 <link rel="canonical" href="https://www.yusukezzz.net/">
-<title>chrome custom tabs の warmup &#8211; yusukezzz weblog</title>
-<link rel='prev' title='jvisualvm でリモート接続' href='https://www.yusukezzz.net/archives/90' />
-<link rel='next' title='Android Studio 3.0 で Robolectric 関連の変更に追従' href='https://www.yusukezzz.net/archives/97' />
-<link rel="canonical" href="https://www.yusukezzz.net/archives/92" />
+<title>Android Studio 3.0 で Robolectric 関連の変更に追従 &#8211; yusukezzz weblog</title>
+<link rel='prev' title='chrome custom tabs の warmup' href='https://www.yusukezzz.net/archives/92' />
+<link rel="canonical" href="https://www.yusukezzz.net/archives/97" />
 
 <!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
  <!-- Facebook Open Graph -->
-  <meta property="og:title" content="chrome custom tabs の warmup"/>
-  <meta property="og:url" content="https://www.yusukezzz.net/archives/92"/>
-  <meta property="og:description" content="custom tabs を使う際は事前に chrome のプロセスを温めておくことで遷移を高速化出来るのだけど、自前で実装しようと思うと結構面倒くさい先人の知恵を拝借しようと Github を検索すると下記の実装が見つかったDreaminginCodeZH/CustomTabsHelper: Custom tabs, made easy&#046;saschpe/android&#045;customtabs: Chrome CustomTabs for Android demystified&#046; Simplifies development and provides higher"/>
+  <meta property="og:title" content="Android Studio 3.0 で Robolectric 関連の変更に追従"/>
+  <meta property="og:url" content="https://www.yusukezzz.net/archives/97"/>
+  <meta property="og:description" content="先日 Android Studio 3.0 が正式にリリースされたので早速ダウンロードしてビルドしたら Robolectric のテストがコケるようになってしまったGetting Started &#124; Robolectric に書いてある通りなのだけど以下の対応をしたら通るようになったどうやらリソースパスを解決するAPIに変更があったらしい1. testOptions の追加app/build.gradle に以下の記述を追加するandroid {  testOptions {    unitTests {      includeAndroidResources"/>
  <!-- Google+ / Schema.org -->
  <!-- Twitter Cards -->
  <!-- SEO -->
@@ -25,7 +24,7 @@
 <!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
 
 </head>
-<body class="post-template-default single single-post postid-92 single-format-standard">
+<body class="post-template-default single single-post postid-97 single-format-standard">
 <div id="wrapper" class="hfeed">
 <header id="header" role="banner">
 <section id="branding">
@@ -48,28 +47,35 @@
 </section>
 </header>
 <div id="container"><section id="content" role="main">
-<article id="post-92" class="post-92 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-library">
+<article id="post-97" class="post-97 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-robolectric">
 <header>
-<h1 class="entry-title"><a href="https://www.yusukezzz.net/archives/92" title="chrome custom tabs の warmup" rel="bookmark">chrome custom tabs の warmup</a></h1> <section class="entry-meta">
+<h1 class="entry-title"><a href="https://www.yusukezzz.net/archives/97" title="Android Studio 3.0 で Robolectric 関連の変更に追従" rel="bookmark">Android Studio 3.0 で Robolectric 関連の変更に追従</a></h1> <section class="entry-meta">
 <span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
 <span class="meta-sep"> | </span>
-<span class="entry-date">2017-10-18</span>
+<span class="entry-date">2017-10-27</span>
 </section>
 </header>
 <section class="entry-content">
-<p>custom tabs を使う際は事前に chrome のプロセスを温めておくことで遷移を高速化出来るのだけど、自前で実装しようと思うと結構面倒くさい<br />
-先人の知恵を拝借しようと Github を検索すると下記の実装が見つかった</p>
-<p><a href="https://github.com/DreaminginCodeZH/CustomTabsHelper">DreaminginCodeZH/CustomTabsHelper: Custom tabs, made easy&#46;</a></p>
-<p><a href="https://github.com/saschpe/android-customtabs">saschpe/android&#45;customtabs: Chrome CustomTabs for Android demystified&#46; Simplifies development and provides higher level classes including fallback in case Chrome isn&#8217;t available on device&#46;</a></p>
-<p>CustomTabsHelper は Fragment を使う前提の実装で、今回自分は Fragment を使っていなかったので後者の android-customtabs を採用した<br />
-使い方は非常にシンプルで README と example の通りなので省略する</p>
-<p>基本的な実装はどちらも同じ、というか下記公式の customtabs 使用例が元になっていて単にアプリ（Fragment）開始時に customtabs の service に接続し、停止時に切断している<br />
-<a href="https://github.com/GoogleChrome/custom-tabs-client">GoogleChrome/custom&#45;tabs&#45;client: Chrome custom tabs examples</a></p>
-<p>ちょっとしたことだけど非常に反応が良くなるので customtabs を使うならぜひ利用したい</p>
+<p>先日 Android Studio 3.0 が正式にリリースされたので早速ダウンロードしてビルドしたら Robolectric のテストがコケるようになってしまった<br />
+<a href="http://robolectric.org/getting-started/">Getting Started &#124; Robolectric</a> に書いてある通りなのだけど以下の対応をしたら通るようになった<br />
+どうやらリソースパスを解決するAPIに変更があったらしい</p>
+<h3>1. testOptions の追加</h3>
+<p>app/build.gradle に以下の記述を追加する</p>
+<pre><code>android {
+  testOptions {
+    unitTests {
+      includeAndroidResources = true
+    }
+  }
+}
+</code></pre>
+<h3>2. BuildConfig の指定を止める</h3>
+<p>テストクラスに Robolectric の BuildConfig 指定がある場合は消す<br />
+<code>@Config(constants = BuildConfig.class)</code></p>
 <div class="entry-links"></div>
 </section>
 <footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/android" rel="tag">android</a>, <a href="https://www.yusukezzz.net/archives/tag/library" rel="tag">library</a></span>
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/android" rel="tag">android</a>, <a href="https://www.yusukezzz.net/archives/tag/robolectric" rel="tag">robolectric</a></span>
 </footer> 
 </article>
 <div id="disqus_thread"></div>
@@ -80,8 +86,8 @@
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 /*
 var disqus_config = function () {
-this.page.url = "https://www.yusukezzz.net/archives/92";
-this.page.identifier = "92";
+this.page.url = "https://www.yusukezzz.net/archives/97";
+this.page.identifier = "97";
 };
 */
 (function() { // DON'T EDIT BELOW THIS LINE
@@ -93,8 +99,8 @@ s.setAttribute('data-timestamp', +new Date());
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><footer class="footer">
 <nav id="nav-below" class="navigation" role="navigation">
-<div class="nav-previous"><a href="https://www.yusukezzz.net/archives/90" rel="prev"><span class="meta-nav">&larr;</span> jvisualvm でリモート接続</a></div>
-<div class="nav-next"><a href="https://www.yusukezzz.net/archives/97" rel="next">Android Studio 3.0 で Robolectric 関連の変更に追従 <span class="meta-nav">&rarr;</span></a></div>
+<div class="nav-previous"><a href="https://www.yusukezzz.net/archives/92" rel="prev"><span class="meta-nav">&larr;</span> chrome custom tabs の warmup</a></div>
+<div class="nav-next"></div>
 </nav>
 </footer>
 </section>

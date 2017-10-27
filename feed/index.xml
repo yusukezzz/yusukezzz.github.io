@@ -11,12 +11,41 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Tue, 17 Oct 2017 17:33:32 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 27 Oct 2017 04:58:14 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.7.6</generator>
 	<item>
+		<title>Android Studio 3.0 で Robolectric 関連の変更に追従</title>
+		<link>https://www.yusukezzz.net/archives/97</link>
+		<pubDate>Fri, 27 Oct 2017 04:58:14 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[android]]></category>
+		<category><![CDATA[robolectric]]></category>
+
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=97</guid>
+		<description><![CDATA[先日 Android Studio 3.0 が正式にリリースされたので早速ダウンロードしてビルドしたら Rob [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>先日 Android Studio 3.0 が正式にリリースされたので早速ダウンロードしてビルドしたら Robolectric のテストがコケるようになってしまった<br />
+<a href="http://robolectric.org/getting-started/">Getting Started &#124; Robolectric</a> に書いてある通りなのだけど以下の対応をしたら通るようになった<br />
+どうやらリソースパスを解決するAPIに変更があったらしい</p>
+<h3>1. testOptions の追加</h3>
+<p>app/build.gradle に以下の記述を追加する</p>
+<pre><code>android {
+  testOptions {
+    unitTests {
+      includeAndroidResources = true
+    }
+  }
+}
+</code></pre>
+<h3>2. BuildConfig の指定を止める</h3>
+<p>テストクラスに Robolectric の BuildConfig 指定がある場合は消す<br />
+<code>@Config(constants = BuildConfig.class)</code></p>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>chrome custom tabs の warmup</title>
 		<link>https://www.yusukezzz.net/archives/92</link>
 		<pubDate>Tue, 17 Oct 2017 17:28:08 +0000</pubDate>

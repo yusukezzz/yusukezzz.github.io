@@ -45,6 +45,41 @@
 </section>
 </header>
 <div id="container"><section id="content" role="main">
+<article id="post-99" class="post-99 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-kotlin tag-parcelable">
+<header>
+<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/99" title="Kotlin の Parcelize で簡単 Parcelable 実装" rel="bookmark">Kotlin の Parcelize で簡単 Parcelable 実装</a></h2> <section class="entry-meta">
+<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
+<span class="meta-sep"> | </span>
+<span class="entry-date">2017-11-23</span>
+</section>
+</header>
+<section class="entry-content">
+<p>Kotlin 1.1.4 から Parcelable を手軽に実装できるようにする機能が追加された</p>
+<p><a href="https://github.com/Kotlin/KEEP/blob/master/proposals/extensions/android-parcelable.md">KEEP/android&#45;parcelable&#46;md at master · Kotlin/KEEP</a></p>
+<p>まだステータスは正式版ではないので gradle で</p>
+<pre><code class="gradle">androidExtensions {
+    experimental = true
+}
+</code></pre>
+<p>を有効化し、</p>
+<pre><code class="kotlin">@Parcelize
+class MyParcelable(val data: Int): Parcelable
+</code></pre>
+<p>このように書いておくとコンパイル時に自動的に Parcelable 相当の実装を生成してくれる<br />
+data クラスにも使用出来るので json のパース結果などを Activity 間で受け渡すのが非常に簡単になる</p>
+<p>これまでは <a href="https://github.com/grandstaish/paperparcel">grandstaish/paperparcel</a> を使っていたが <code>CREATOR</code> フィールドを用意する必要がないのでより手軽だ</p>
+<p>※注意<br />
+CRETOR フィールドを用意する必要はないが、@Parcelize アノテーションを付与したクラスはIDE上で<br />
+<code>this class implements parcelable but does not provide a CREATOR field</code><br />
+というエラー扱いになる（でもコンパイルは通る）<br />
+下記チケットが起票されているので、直に修正される…と思いたい<br />
+<a href="https://youtrack.jetbrains.com/issue/KT-19300">&#91;AS3&#46;0&#93; Android extensions, Parcelable: editor shows warning about incomplete implementation on a class with Parcelize annotation : KT&#45;19300</a></p>
+<div class="entry-links"></div>
+</section>
+<footer class="entry-footer">
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/android" rel="tag">android</a>, <a href="https://www.yusukezzz.net/archives/tag/kotlin" rel="tag">kotlin</a>, <a href="https://www.yusukezzz.net/archives/tag/parcelable" rel="tag">parcelable</a></span>
+</footer> 
+</article>
 <article id="post-97" class="post-97 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-robolectric">
 <header>
 <h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/97" title="Android Studio 3.0 で Robolectric 関連の変更に追従" rel="bookmark">Android Studio 3.0 で Robolectric 関連の変更に追従</a></h2> <section class="entry-meta">
@@ -151,76 +186,6 @@ Laravel アプリで <code>artisan config:cache</code> を行っていると .en
 </section>
 <footer class="entry-footer">
 <span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/laravel" rel="tag">laravel</a>, <a href="https://www.yusukezzz.net/archives/tag/php" rel="tag">php</a></span>
-</footer> 
-</article>
-<article id="post-77" class="post-77 post type-post status-publish format-standard hentry category-uncategorized tag-linux tag-ubuntu tag-ufw tag-vultr">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/77" title="vultr で ubuntu インストールして最初に行った設定" rel="bookmark">vultr で ubuntu インストールして最初に行った設定</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-10-02</span>
-</section>
-</header>
-<section class="entry-content">
-<p><a href="https://www.vultr.com/">SSD VPS Servers, Cloud Servers and Cloud Hosting by Vultr &#45; Vultr&#46;com</a> というサービスで ubuntu をインストールした時の記録</p>
-<p>2.5ドルのは空きがなかったので5ドルのプランにした<br />
-とはいえ東京でメモリ1GBのマシンがこの値段なら十分安い<br />
-ちなみに<a href="https://www.vultr.com/?ref=7199493">このリンク</a>から登録してもらうとお互いにクレジットがもらえる（ある程度実際に課金する必要はある）</p>
-<p>インストールしたのは ubuntu 16.04<br />
-web管理画面から作成を実行し、しばらくしてRUNNINGのステータスになるとアクセス可能になる<br />
-IPアドレスと root のパスワードも管理画面で確認可能</p>
-<h3>アカウント作成</h3>
-<p>最初は root しかいないので作業用アカウントを作成し sudo 出来るグループに追加しておく</p>
-<pre><code>adduser yusuke
-passwd yusuke
-gpasswd -a yusuke admin
-</code></pre>
-<p>作成したら ssh-copy-id などで公開鍵認証でのログインが出来るようにしておく<br />
-必ず鍵認証でアクセスが可能なことを確認しておくこと</p>
-<h3>root, パスワードでのログイン禁止設定</h3>
-<p><code>sudo vim /etc/ssh/sshd_config</code> して　PermitRootLogin, PasswordAuthentication を no にする<br />
-<code>sudo service sshd restart</code> する<br />
-この時点でパスワードログイン出来ないことを確認しておくこと</p>
-<h3>ファイアウォール設定</h3>
-<p>ubuntu では iptables を直接触らずに ufw というコマンドで設定していく<br />
-以下では ssh, http, https のみ許可している<br />
-参考：<a href="https://qiita.com/yoh-nak/items/46935af3c5c4036e93b3">ufwを使って簡単にファイアウォールを設定する &#45; Qiita</a></p>
-<pre><code>sudo ufw default deny
-sudo ufw allow 22
-sudo ufw allow 80
-sudo ufw allow 443
-sudo ufw enable
-sudo ufw reload
-</code></pre>
-<h3>aptitude のインストール</h3>
-<p>組み込みの apt-get でも十分だが、 aptitude の方が多少便利<br />
-具体的には関連パッケージの自動アンインストールをデフォルトでやってくれたりする<br />
-（autoremove を付ければ apt-get でも出来る）</p>
-<p><code>sudo apt-get install aptitude</code></p>
-<p>ついでに upgrade して再起動しておく</p>
-<pre><code>sudo aptitude upgrade
-sudo reboot
-</code></pre>
-<h3>怪しいログイン試行をブロック</h3>
-<p>denyhosts というサービスをインストールするとログインに失敗したホストを自動的に /etc/hosts.deny に追加してくれる<br />
-<code>sudo aptitude install denyhosts</code><br />
-設定は<a href="http://d.conma.me/entry/20080126/1201329875">Denyhosts導入メモ &#45; まめ畑</a>などを参考に<br />
-<code>sudo service denyhosts restart</code> で設定反映</p>
-<h3>タイムゾーンをJSTにする</h3>
-<p>デフォルトはUTCなので日本時間に変更する</p>
-<pre><code>sudo timedatectl set-timezone Asia/Tokyo
-</code></pre>
-<p>時刻同期の設定もしておく</p>
-<pre><code>sudo aptitude install ntp
-sudo vim /etc/ntp.conf
-</code></pre>
-<p>末尾の方にある server に適当な国内 ntp サーバを設定する<br />
-<code>server ntp.nict.jp</code> など<br />
-<code>sudo service ntp restart</code> で反映</p>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/linux" rel="tag">linux</a>, <a href="https://www.yusukezzz.net/archives/tag/ubuntu" rel="tag">ubuntu</a>, <a href="https://www.yusukezzz.net/archives/tag/ufw" rel="tag">ufw</a>, <a href="https://www.yusukezzz.net/archives/tag/vultr" rel="tag">vultr</a></span>
 </footer> 
 </article>
 <nav id="nav-below" class="navigation" role="navigation">

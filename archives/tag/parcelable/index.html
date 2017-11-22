@@ -8,13 +8,13 @@
 <link rel="alternate" type="application/rss+xml" title="Yusukezzz weblog &raquo; フィード" href="https://www.yusukezzz.net/feed" />
 <link rel="alternate" type="application/xml" title="sitemap" href="https://www.yusukezzz.net/sitemap.xml" />
 <link rel="canonical" href="https://www.yusukezzz.net/">
-<title>android &#8211; yusukezzz weblog</title>
+<title>parcelable &#8211; yusukezzz weblog</title>
 
 <!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
  <!-- Facebook Open Graph -->
-  <meta property="og:title" content="android"/>
-  <meta property="og:url" content="https://www.yusukezzz.net/archives/tag/android"/>
-  <meta property="og:description" content="android"/>
+  <meta property="og:title" content="parcelable"/>
+  <meta property="og:url" content="https://www.yusukezzz.net/archives/tag/parcelable"/>
+  <meta property="og:description" content="parcelable"/>
  <!-- Google+ / Schema.org -->
  <!-- Twitter Cards -->
  <!-- SEO -->
@@ -22,7 +22,7 @@
 <!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
 
 </head>
-<body class="archive tag tag-android tag-18">
+<body class="archive tag tag-parcelable tag-22">
 <div id="wrapper" class="hfeed">
 <header id="header" role="banner">
 <section id="branding">
@@ -78,61 +78,6 @@ CRETOR フィールドを用意する必要はないが、@Parcelize アノテ�
 </section>
 <footer class="entry-footer">
 <span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/android" rel="tag">android</a>, <a href="https://www.yusukezzz.net/archives/tag/kotlin" rel="tag">kotlin</a>, <a href="https://www.yusukezzz.net/archives/tag/parcelable" rel="tag">parcelable</a></span>
-</footer> 
-</article>
-<article id="post-97" class="post-97 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-robolectric">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/97" title="Android Studio 3.0 で Robolectric 関連の変更に追従" rel="bookmark">Android Studio 3.0 で Robolectric 関連の変更に追従</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-10-27</span>
-</section>
-</header>
-<section class="entry-content">
-<p>先日 Android Studio 3.0 が正式にリリースされたので早速ダウンロードしてビルドしたら Robolectric のテストがコケるようになってしまった<br />
-<a href="http://robolectric.org/getting-started/">Getting Started &#124; Robolectric</a> に書いてある通りなのだけど以下の対応をしたら通るようになった<br />
-どうやらリソースパスを解決するAPIに変更があったらしい</p>
-<h3>1. testOptions の追加</h3>
-<p>app/build.gradle に以下の記述を追加する</p>
-<pre><code>android {
-  testOptions {
-    unitTests {
-      includeAndroidResources = true
-    }
-  }
-}
-</code></pre>
-<h3>2. BuildConfig の指定を止める</h3>
-<p>テストクラスに Robolectric の BuildConfig 指定がある場合は消す<br />
-<code>@Config(constants = BuildConfig.class)</code></p>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/android" rel="tag">android</a>, <a href="https://www.yusukezzz.net/archives/tag/robolectric" rel="tag">robolectric</a></span>
-</footer> 
-</article>
-<article id="post-92" class="post-92 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-library">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/92" title="chrome custom tabs の warmup" rel="bookmark">chrome custom tabs の warmup</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-10-18</span>
-</section>
-</header>
-<section class="entry-content">
-<p>custom tabs を使う際は事前に chrome のプロセスを温めておくことで遷移を高速化出来るのだけど、自前で実装しようと思うと結構面倒くさい<br />
-先人の知恵を拝借しようと Github を検索すると下記の実装が見つかった</p>
-<p><a href="https://github.com/DreaminginCodeZH/CustomTabsHelper">DreaminginCodeZH/CustomTabsHelper: Custom tabs, made easy&#46;</a></p>
-<p><a href="https://github.com/saschpe/android-customtabs">saschpe/android&#45;customtabs: Chrome CustomTabs for Android demystified&#46; Simplifies development and provides higher level classes including fallback in case Chrome isn&#8217;t available on device&#46;</a></p>
-<p>CustomTabsHelper は Fragment を使う前提の実装で、今回自分は Fragment を使っていなかったので後者の android-customtabs を採用した<br />
-使い方は非常にシンプルで README と example の通りなので省略する</p>
-<p>基本的な実装はどちらも同じ、というか下記公式の customtabs 使用例が元になっていて単にアプリ（Fragment）開始時に customtabs の service に接続し、停止時に切断している<br />
-<a href="https://github.com/GoogleChrome/custom-tabs-client">GoogleChrome/custom&#45;tabs&#45;client: Chrome custom tabs examples</a></p>
-<p>ちょっとしたことだけど非常に反応が良くなるので customtabs を使うならぜひ利用したい</p>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/android" rel="tag">android</a>, <a href="https://www.yusukezzz.net/archives/tag/library" rel="tag">library</a></span>
 </footer> 
 </article>
 </section>

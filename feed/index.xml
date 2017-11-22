@@ -11,12 +11,46 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Fri, 27 Oct 2017 04:58:14 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 22 Nov 2017 15:28:02 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=4.7.6</generator>
+	<generator>https://wordpress.org/?v=4.7.7</generator>
 	<item>
+		<title>Kotlin の Parcelize で簡単 Parcelable 実装</title>
+		<link>https://www.yusukezzz.net/archives/99</link>
+		<pubDate>Wed, 22 Nov 2017 15:26:42 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[android]]></category>
+		<category><![CDATA[kotlin]]></category>
+		<category><![CDATA[parcelable]]></category>
+
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=99</guid>
+		<description><![CDATA[Kotlin 1.1.4 から Parcelable を手軽に実装できるようにする機能が追加された KEEP/ [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Kotlin 1.1.4 から Parcelable を手軽に実装できるようにする機能が追加された</p>
+<p><a href="https://github.com/Kotlin/KEEP/blob/master/proposals/extensions/android-parcelable.md">KEEP/android&#45;parcelable&#46;md at master · Kotlin/KEEP</a></p>
+<p>まだステータスは正式版ではないので gradle で</p>
+<pre><code class="gradle">androidExtensions {
+    experimental = true
+}
+</code></pre>
+<p>を有効化し、</p>
+<pre><code class="kotlin">@Parcelize
+class MyParcelable(val data: Int): Parcelable
+</code></pre>
+<p>このように書いておくとコンパイル時に自動的に Parcelable 相当の実装を生成してくれる<br />
+data クラスにも使用出来るので json のパース結果などを Activity 間で受け渡すのが非常に簡単になる</p>
+<p>これまでは <a href="https://github.com/grandstaish/paperparcel">grandstaish/paperparcel</a> を使っていたが <code>CREATOR</code> フィールドを用意する必要がないのでより手軽だ</p>
+<p>※注意<br />
+CRETOR フィールドを用意する必要はないが、@Parcelize アノテーションを付与したクラスはIDE上で<br />
+<code>this class implements parcelable but does not provide a CREATOR field</code><br />
+というエラー扱いになる（でもコンパイルは通る）<br />
+下記チケットが起票されているので、直に修正される…と思いたい<br />
+<a href="https://youtrack.jetbrains.com/issue/KT-19300">&#91;AS3&#46;0&#93; Android extensions, Parcelable: editor shows warning about incomplete implementation on a class with Parcelize annotation : KT&#45;19300</a></p>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>Android Studio 3.0 で Robolectric 関連の変更に追従</title>
 		<link>https://www.yusukezzz.net/archives/97</link>
 		<pubDate>Fri, 27 Oct 2017 04:58:14 +0000</pubDate>

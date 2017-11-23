@@ -29,7 +29,7 @@ h5{font-size:18px}
 h6{font-size:16px}
 strong, dt{font-weight:bold}
 em, address, cite, var{font-style:italic}
-code{font-family:monospace;color:#ddd;background-color:#272822;padding:0.2em;font-size:80%;}
+code{font-family:monospace;color:#657b83;background-color:#fdf6e3;padding:0.2em;font-size:80%;}
 pre{overflow-x:auto;white-space:pre-wrap}
 hr{height:1px;color:#ccc;border:0 none;margin:30px 0;background-color:#ccc}
 .entry-content ul, .comment ul, .entry-content ol, .comment ol{font-family:helvetica,arial,sans-serif;margin-left:20px !important}

@@ -11,7 +11,7 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Wed, 22 Nov 2017 15:28:02 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 23 Nov 2017 15:09:48 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
@@ -66,7 +66,7 @@ CRETOR フィールドを用意する必要はないが、@Parcelize アノテ�
 どうやらリソースパスを解決するAPIに変更があったらしい</p>
 <h3>1. testOptions の追加</h3>
 <p>app/build.gradle に以下の記述を追加する</p>
-<pre><code>android {
+<pre><code class="gradle">android {
   testOptions {
     unitTests {
       includeAndroidResources = true

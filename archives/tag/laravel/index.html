@@ -173,6 +173,7 @@ middleware は非常に便利だが、自分が実装・追加したわけでは
     var d = document, t = 'script',
         o = d.createElement(t),
         s = d.getElementsByTagName(t)[0];
+    o.async = true;
     o.src = url;
     if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
     s.parentNode.insertBefore(o, s);

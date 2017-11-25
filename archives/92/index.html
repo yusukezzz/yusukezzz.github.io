@@ -184,6 +184,7 @@ s.setAttribute('data-timestamp', +new Date());
     var d = document, t = 'script',
         o = d.createElement(t),
         s = d.getElementsByTagName(t)[0];
+    o.async = true;
     o.src = url;
     if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
     s.parentNode.insertBefore(o, s);

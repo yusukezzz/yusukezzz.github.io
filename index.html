@@ -116,6 +116,63 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 </section>
 </header>
 <div id="container"><section id="content" role="main">
+<article id="post-109" class="post-109 post type-post status-publish format-standard hentry category-uncategorized tag-css tag-js">
+<header>
+<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/109" title="PageSpeed Insights スコア向上のためにやったこと" rel="bookmark">PageSpeed Insights スコア向上のためにやったこと</a></h2> <section class="entry-meta">
+<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
+<span class="meta-sep"> | </span>
+<span class="entry-date">2017-11-25</span>
+</section>
+</header>
+<section class="entry-content">
+<p><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a></p>
+<p>www.yusukezzz.net のスコアはPC版で90、モバイル向けで87となっている<br />
+github.io に置いてるサイトなので出来ることはあまり多くないのだけど、元は70点台ぐらいだったのでここまで上げるためにやったこと2点をまとめておく</p>
+<h3>CSS, JS の縮小</h3>
+<p>いわゆる minify と言われているやつ<br />
+wordpress だと plugin で出来たりするが、この blog では cloudflare の機能を利用している<br />
+<img src="https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png" alt="" width="300" height="148" class="alignnone size-medium wp-image-115" srcset="https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png 300w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-768x379.png 768w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-1024x506.png 1024w" sizes="(max-width: 300px) 100vw, 300px" /><br />
+Speed タブの Auto Minify から有効化出来る<br />
+CSS, JS, HTMLの3種類が選べるが、この blog だとHTMLの minify は不具合があったので CSS, JS だけ使用している</p>
+<h3>レンダリングをブロックしているコンテンツの排除</h3>
+<p>同期的に読み込まれる CSS, JS はページのレンダリングを遅くするため、非同期的に読み込むとスコアが向上する<br />
+読み込むだけで効果のある単純な JS であれば async または defer 属性を付けるだけでなんとかなる(※)が、<br />
+読み込んでから初期化処理を呼び出す必要がある場合は読み込み完了に hook して実行する必要がある<br />
+この blog では highlightjs が該当し、ページ末尾で以下のような script を実行している</p>
+<p>※document.write しちゃってるような行儀の悪い script や読み込み順に依存関係があるものを除く</p>
+<pre><code class="javascript">&lt;script&gt;
+  function loadCss(url) {
+    var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = url;
+    var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+  }
+  function loadJs(url, cb) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.async = true;
+    o.src = url;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+  var cb = function() {
+    loadCss('https://www.yusukezzz.net/wp-content/highlightjs/solarized-light.css');
+    loadJs('https://www.yusukezzz.net/wp-content/highlightjs/highlight.pack.js', function() {
+      hljs.initHighlightingOnLoad();
+    });
+  };
+  var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+      webkitRequestAnimationFrame || msRequestAnimationFrame;
+  if (raf) raf(cb);
+  else window.addEventListener('load', cb);
+&lt;/script&gt;
+</code></pre>
+<p>もっとも、小規模なものであれば外部ファイル化せずに直接 head タグ内に書いたほうが良い（インライン展開）</p>
+<div class="entry-links"></div>
+</section>
+<footer class="entry-footer">
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/css" rel="tag">css</a>, <a href="https://www.yusukezzz.net/archives/tag/js" rel="tag">js</a></span>
+</footer> 
+</article>
 <article id="post-99" class="post-99 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-kotlin tag-parcelable">
 <header>
 <h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/99" title="Kotlin の Parcelize で簡単 Parcelable 実装" rel="bookmark">Kotlin の Parcelize で簡単 Parcelable 実装</a></h2> <section class="entry-meta">
@@ -236,27 +293,6 @@ port は他で使われてなければ何でも良いが、同じ値を指定す
 </section>
 <footer class="entry-footer">
 <span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/debug" rel="tag">debug</a>, <a href="https://www.yusukezzz.net/archives/tag/java" rel="tag">java</a>, <a href="https://www.yusukezzz.net/archives/tag/jvisualvm" rel="tag">jvisualvm</a></span>
-</footer> 
-</article>
-<article id="post-84" class="post-84 post type-post status-publish format-standard hentry category-uncategorized tag-laravel tag-php">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/84" title="Laravel で .env の内容が反映されない場合" rel="bookmark">Laravel で .env の内容が反映されない場合</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-10-08</span>
-</section>
-</header>
-<section class="entry-content">
-<p><a href="https://laravel.com/docs/5.5/configuration#configuration-caching">公式マニュアル</a>にも記載があるが、<br />
-Laravel アプリで <code>artisan config:cache</code> を行っていると .env を変更してもファイルの内容が反映されない<br />
-また、アプリ内で env ヘルパー関数などから直接環境変数を参照しているとそもそも値が渡っていない<br />
-下記実装を見ると分かるが、 config キャッシュ済みの場合はそもそも .env のロード自体がスキップされるため</p>
-<p><a href="https://github.com/laravel/framework/blob/bd352a0d2ca93775fce8ef02365b03fc4fb8cbb0/src/Illuminate/Foundation/Bootstrap/LoadEnvironmentVariables.php#L20">framework/LoadEnvironmentVariables&#46;php#L20 at bd352a0d2ca93775fce8ef02365b03fc4fb8cbb0 · laravel/framework</a></p>
-<p>解決するには config を cache しない、又は env の値を config ファイルを経由して参照するよう徹底し値の変更ごとに cache し直す</p>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/laravel" rel="tag">laravel</a>, <a href="https://www.yusukezzz.net/archives/tag/php" rel="tag">php</a></span>
 </footer> 
 </article>
 <nav id="nav-below" class="navigation" role="navigation">

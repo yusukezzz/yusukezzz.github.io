@@ -11,12 +11,67 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Thu, 23 Nov 2017 15:09:48 +0000</lastBuildDate>
+	<lastBuildDate>Sat, 25 Nov 2017 13:51:32 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.7.7</generator>
 	<item>
+		<title>PageSpeed Insights スコア向上のためにやったこと</title>
+		<link>https://www.yusukezzz.net/archives/109</link>
+		<pubDate>Sat, 25 Nov 2017 13:51:32 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[css]]></category>
+		<category><![CDATA[js]]></category>
+
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=109</guid>
+		<description><![CDATA[PageSpeed Insights www.yusukezzz.net のスコアはPC版で90、モバイル向け [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a></p>
+<p>www.yusukezzz.net のスコアはPC版で90、モバイル向けで87となっている<br />
+github.io に置いてるサイトなので出来ることはあまり多くないのだけど、元は70点台ぐらいだったのでここまで上げるためにやったこと2点をまとめておく</p>
+<h3>CSS, JS の縮小</h3>
+<p>いわゆる minify と言われているやつ<br />
+wordpress だと plugin で出来たりするが、この blog では cloudflare の機能を利用している<br />
+<img src="https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png" alt="" width="300" height="148" class="alignnone size-medium wp-image-115" srcset="https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png 300w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-768x379.png 768w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-1024x506.png 1024w" sizes="(max-width: 300px) 100vw, 300px" /><br />
+Speed タブの Auto Minify から有効化出来る<br />
+CSS, JS, HTMLの3種類が選べるが、この blog だとHTMLの minify は不具合があったので CSS, JS だけ使用している</p>
+<h3>レンダリングをブロックしているコンテンツの排除</h3>
+<p>同期的に読み込まれる CSS, JS はページのレンダリングを遅くするため、非同期的に読み込むとスコアが向上する<br />
+読み込むだけで効果のある単純な JS であれば async または defer 属性を付けるだけでなんとかなる(※)が、<br />
+読み込んでから初期化処理を呼び出す必要がある場合は読み込み完了に hook して実行する必要がある<br />
+この blog では highlightjs が該当し、ページ末尾で以下のような script を実行している</p>
+<p>※document.write しちゃってるような行儀の悪い script や読み込み順に依存関係があるものを除く</p>
+<pre><code class="javascript">&lt;script&gt;
+  function loadCss(url) {
+    var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = url;
+    var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+  }
+  function loadJs(url, cb) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.async = true;
+    o.src = url;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+  var cb = function() {
+    loadCss('https://www.yusukezzz.net/wp-content/highlightjs/solarized-light.css');
+    loadJs('https://www.yusukezzz.net/wp-content/highlightjs/highlight.pack.js', function() {
+      hljs.initHighlightingOnLoad();
+    });
+  };
+  var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+      webkitRequestAnimationFrame || msRequestAnimationFrame;
+  if (raf) raf(cb);
+  else window.addEventListener('load', cb);
+&lt;/script&gt;
+</code></pre>
+<p>もっとも、小規模なものであれば外部ファイル化せずに直接 head タグ内に書いたほうが良い（インライン展開）</p>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>Kotlin の Parcelize で簡単 Parcelable 実装</title>
 		<link>https://www.yusukezzz.net/archives/99</link>
 		<pubDate>Wed, 22 Nov 2017 15:26:42 +0000</pubDate>

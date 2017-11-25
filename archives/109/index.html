@@ -79,16 +79,15 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 <link rel="alternate" type="application/rss+xml" title="Yusukezzz weblog &raquo; フィード" href="https://www.yusukezzz.net/feed" />
 <link rel="alternate" type="application/xml" title="sitemap" href="https://www.yusukezzz.net/sitemap.xml" />
 <link rel="canonical" href="https://www.yusukezzz.net/">
-<title>Kotlin の Parcelize で簡単 Parcelable 実装 &#8211; yusukezzz weblog</title>
-<link rel='prev' title='Android Studio 3.0 で Robolectric 関連の変更に追従' href='https://www.yusukezzz.net/archives/97' />
-<link rel='next' title='PageSpeed Insights スコア向上のためにやったこと' href='https://www.yusukezzz.net/archives/109' />
-<link rel="canonical" href="https://www.yusukezzz.net/archives/99" />
+<title>PageSpeed Insights スコア向上のためにやったこと &#8211; yusukezzz weblog</title>
+<link rel='prev' title='Kotlin の Parcelize で簡単 Parcelable 実装' href='https://www.yusukezzz.net/archives/99' />
+<link rel="canonical" href="https://www.yusukezzz.net/archives/109" />
 
 <!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
  <!-- Facebook Open Graph -->
-  <meta property="og:title" content="Kotlin の Parcelize で簡単 Parcelable 実装"/>
-  <meta property="og:url" content="https://www.yusukezzz.net/archives/99"/>
-  <meta property="og:description" content="Kotlin 1.1.4 から Parcelable を手軽に実装できるようにする機能が追加されたKEEP/android&#045;parcelable&#046;md at master · Kotlin/KEEPまだステータスは正式版ではないので gradle でandroidExtensions {    experimental = true}を有効化し、@Parcelizeclass MyParcelable(val data: Int): Parcelableこのように書いておくとコンパイル時に自動的に Parcelable 相当の実装を生成してくれ"/>
+  <meta property="og:title" content="PageSpeed Insights スコア向上のためにやったこと"/>
+  <meta property="og:url" content="https://www.yusukezzz.net/archives/109"/>
+  <meta property="og:description" content="PageSpeed Insightswww.yusukezzz.net のスコアはPC版で90、モバイル向けで87となっているgithub.io に置いてるサイトなので出来ることはあまり多くないのだけど、元は70点台ぐらいだったのでここまで上げるためにやったこと2点をまとめておくCSS, JS の縮小いわゆる minify と言われているやつwordpress だと plugin で出来たりするが、この blog では cloudflare の機能を利用しているSpeed タブの Auto Minify から有効化出来るCSS, JS, HTMLの3種類が選べるが、この"/>
  <!-- Google+ / Schema.org -->
  <!-- Twitter Cards -->
  <!-- SEO -->
@@ -96,7 +95,7 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 <!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
 
 </head>
-<body class="post-template-default single single-post postid-99 single-format-standard">
+<body class="post-template-default single single-post postid-109 single-format-standard">
 <div id="wrapper" class="hfeed">
 <header id="header" role="banner">
 <section id="branding">
@@ -119,39 +118,61 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 </section>
 </header>
 <div id="container"><section id="content" role="main">
-<article id="post-99" class="post-99 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-kotlin tag-parcelable">
+<article id="post-109" class="post-109 post type-post status-publish format-standard hentry category-uncategorized tag-css tag-js">
 <header>
-<h1 class="entry-title"><a href="https://www.yusukezzz.net/archives/99" title="Kotlin の Parcelize で簡単 Parcelable 実装" rel="bookmark">Kotlin の Parcelize で簡単 Parcelable 実装</a></h1> <section class="entry-meta">
+<h1 class="entry-title"><a href="https://www.yusukezzz.net/archives/109" title="PageSpeed Insights スコア向上のためにやったこと" rel="bookmark">PageSpeed Insights スコア向上のためにやったこと</a></h1> <section class="entry-meta">
 <span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
 <span class="meta-sep"> | </span>
-<span class="entry-date">2017-11-23</span>
+<span class="entry-date">2017-11-25</span>
 </section>
 </header>
 <section class="entry-content">
-<p>Kotlin 1.1.4 から Parcelable を手軽に実装できるようにする機能が追加された</p>
-<p><a href="https://github.com/Kotlin/KEEP/blob/master/proposals/extensions/android-parcelable.md">KEEP/android&#45;parcelable&#46;md at master · Kotlin/KEEP</a></p>
-<p>まだステータスは正式版ではないので gradle で</p>
-<pre><code class="gradle">androidExtensions {
-    experimental = true
-}
+<p><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a></p>
+<p>www.yusukezzz.net のスコアはPC版で90、モバイル向けで87となっている<br />
+github.io に置いてるサイトなので出来ることはあまり多くないのだけど、元は70点台ぐらいだったのでここまで上げるためにやったこと2点をまとめておく</p>
+<h3>CSS, JS の縮小</h3>
+<p>いわゆる minify と言われているやつ<br />
+wordpress だと plugin で出来たりするが、この blog では cloudflare の機能を利用している<br />
+<img src="https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png" alt="" width="300" height="148" class="alignnone size-medium wp-image-115" srcset="https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png 300w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-768x379.png 768w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-1024x506.png 1024w" sizes="(max-width: 300px) 100vw, 300px" /><br />
+Speed タブの Auto Minify から有効化出来る<br />
+CSS, JS, HTMLの3種類が選べるが、この blog だとHTMLの minify は不具合があったので CSS, JS だけ使用している</p>
+<h3>レンダリングをブロックしているコンテンツの排除</h3>
+<p>同期的に読み込まれる CSS, JS はページのレンダリングを遅くするため、非同期的に読み込むとスコアが向上する<br />
+読み込むだけで効果のある単純な JS であれば async または defer 属性を付けるだけでなんとかなる(※)が、<br />
+読み込んでから初期化処理を呼び出す必要がある場合は読み込み完了に hook して実行する必要がある<br />
+この blog では highlightjs が該当し、ページ末尾で以下のような script を実行している</p>
+<p>※document.write しちゃってるような行儀の悪い script や読み込み順に依存関係があるものを除く</p>
+<pre><code class="javascript">&lt;script&gt;
+  function loadCss(url) {
+    var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = url;
+    var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
+  }
+  function loadJs(url, cb) {
+    var d = document, t = 'script',
+        o = d.createElement(t),
+        s = d.getElementsByTagName(t)[0];
+    o.async = true;
+    o.src = url;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+  var cb = function() {
+    loadCss('https://www.yusukezzz.net/wp-content/highlightjs/solarized-light.css');
+    loadJs('https://www.yusukezzz.net/wp-content/highlightjs/highlight.pack.js', function() {
+      hljs.initHighlightingOnLoad();
+    });
+  };
+  var raf = requestAnimationFrame || mozRequestAnimationFrame ||
+      webkitRequestAnimationFrame || msRequestAnimationFrame;
+  if (raf) raf(cb);
+  else window.addEventListener('load', cb);
+&lt;/script&gt;
 </code></pre>
-<p>を有効化し、</p>
-<pre><code class="kotlin">@Parcelize
-class MyParcelable(val data: Int): Parcelable
-</code></pre>
-<p>このように書いておくとコンパイル時に自動的に Parcelable 相当の実装を生成してくれる<br />
-data クラスにも使用出来るので json のパース結果などを Activity 間で受け渡すのが非常に簡単になる</p>
-<p>これまでは <a href="https://github.com/grandstaish/paperparcel">grandstaish/paperparcel</a> を使っていたが <code>CREATOR</code> フィールドを用意する必要がないのでより手軽だ</p>
-<p>※注意<br />
-CRETOR フィールドを用意する必要はないが、@Parcelize アノテーションを付与したクラスはIDE上で<br />
-<code>this class implements parcelable but does not provide a CREATOR field</code><br />
-というエラー扱いになる（でもコンパイルは通る）<br />
-下記チケットが起票されているので、直に修正される…と思いたい<br />
-<a href="https://youtrack.jetbrains.com/issue/KT-19300">&#91;AS3&#46;0&#93; Android extensions, Parcelable: editor shows warning about incomplete implementation on a class with Parcelize annotation : KT&#45;19300</a></p>
+<p>もっとも、小規模なものであれば外部ファイル化せずに直接 head タグ内に書いたほうが良い（インライン展開）</p>
 <div class="entry-links"></div>
 </section>
 <footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/android" rel="tag">android</a>, <a href="https://www.yusukezzz.net/archives/tag/kotlin" rel="tag">kotlin</a>, <a href="https://www.yusukezzz.net/archives/tag/parcelable" rel="tag">parcelable</a></span>
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/css" rel="tag">css</a>, <a href="https://www.yusukezzz.net/archives/tag/js" rel="tag">js</a></span>
 </footer> 
 </article>
 <div id="disqus_thread"></div>
@@ -162,8 +183,8 @@ CRETOR フィールドを用意する必要はないが、@Parcelize アノテ�
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 /*
 var disqus_config = function () {
-this.page.url = "https://www.yusukezzz.net/archives/99";
-this.page.identifier = "99";
+this.page.url = "https://www.yusukezzz.net/archives/109";
+this.page.identifier = "109";
 };
 */
 (function() { // DON'T EDIT BELOW THIS LINE
@@ -175,8 +196,8 @@ s.setAttribute('data-timestamp', +new Date());
 </script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript><footer class="footer">
 <nav id="nav-below" class="navigation" role="navigation">
-<div class="nav-previous"><a href="https://www.yusukezzz.net/archives/97" rel="prev"><span class="meta-nav">&larr;</span> Android Studio 3.0 で Robolectric 関連の変更に追従</a></div>
-<div class="nav-next"><a href="https://www.yusukezzz.net/archives/109" rel="next">PageSpeed Insights スコア向上のためにやったこと <span class="meta-nav">&rarr;</span></a></div>
+<div class="nav-previous"><a href="https://www.yusukezzz.net/archives/99" rel="prev"><span class="meta-nav">&larr;</span> Kotlin の Parcelize で簡単 Parcelable 実装</a></div>
+<div class="nav-next"></div>
 </nav>
 </footer>
 </section>

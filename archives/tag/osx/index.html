@@ -79,13 +79,13 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 <link rel="alternate" type="application/rss+xml" title="Yusukezzz weblog &raquo; フィード" href="https://www.yusukezzz.net/feed" />
 <link rel="alternate" type="application/xml" title="sitemap" href="https://www.yusukezzz.net/sitemap.xml" />
 <link rel="canonical" href="https://www.yusukezzz.net/">
-<title>yusukezzz &#8211; ページ 3 &#8211; yusukezzz weblog</title>
+<title>osx &#8211; yusukezzz weblog</title>
 
 <!-- START - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
  <!-- Facebook Open Graph -->
-  <meta property="og:title" content="yusukezzz"/>
-  <meta property="og:url" content="https://www.yusukezzz.net/archives/author/yusukezzz"/>
-  <meta property="og:description" content="yusukezzz"/>
+  <meta property="og:title" content="osx"/>
+  <meta property="og:url" content="https://www.yusukezzz.net/archives/tag/osx"/>
+  <meta property="og:description" content="osx"/>
  <!-- Google+ / Schema.org -->
  <!-- Twitter Cards -->
  <!-- SEO -->
@@ -93,7 +93,7 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 <!-- END - Facebook Open Graph, Google+ and Twitter Card Tags 2.0.8.2 -->
 
 </head>
-<body class="archive paged author author-yusukezzz author-1 paged-3 author-paged-3">
+<body class="archive tag tag-osx tag-26">
 <div id="wrapper" class="hfeed">
 <header id="header" role="banner">
 <section id="branding">
@@ -116,74 +116,33 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 </section>
 </header>
 <div id="container"><section id="content" role="main">
-<article id="post-46" class="post-46 post type-post status-publish format-standard hentry category-uncategorized tag-tmux">
+<article id="post-120" class="post-120 post type-post status-publish format-standard hentry category-uncategorized tag-osx tag-synergy">
 <header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/46" title="tmux 2.4 で vi 風キーバインドが invalid or unknown command と言われる" rel="bookmark">tmux 2.4 で vi 風キーバインドが invalid or unknown command と言われる</a></h2> <section class="entry-meta">
+<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/120" title="osx 版 Synergy2 がスリープ復帰後に再接続してくれない" rel="bookmark">osx 版 Synergy2 がスリープ復帰後に再接続してくれない</a></h2> <section class="entry-meta">
 <span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
 <span class="meta-sep"> | </span>
-<span class="entry-date">2017-05-07</span>
+<span class="entry-date">2017-11-30</span>
 </section>
 </header>
 <section class="entry-content">
-<p>起動時に</p>
-<p><code>invalid or unknown command: bind-key -t vi-copy v begin-selection</code></p>
-<p>などと言われる<br />
-どうやら設定の書き方が変わってしまったようだ</p>
-<p><a href="https://github.com/tmux/tmux/issues/754">invalid or unknown command: &#96;bind&#45;key &#45;t vi&#45;copy &#46;&#46;&#46;&#46;&#96; · Issue &#35;754 · tmux/tmux</a></p>
-<p>ここの下の方に書かれているが、こんな感じにすると直った</p>
-<pre><code class="shell">unbind-key -T copy-mode-vi Space     ;   bind-key -T copy-mode-vi v send-keys -X begin-selection
-unbind-key -T copy-mode-vi Enter     ;   bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
-unbind-key -T copy-mode-vi C-v       ;   bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-unbind-key -T copy-mode-vi [         ;   bind-key -T copy-mode-vi [ send-keys -X begin-selection
-unbind-key -T copy-mode-vi ]         ;   bind-key -T copy-mode-vi ] send-keys -X copy-selection
+<p>Synergy2 になってから表題の現象が起こっているのに気づいた<br />
+ver は 2.0.1, 2.0.2 で確認している</p>
+<p>osx 版は一度起動すると以降 Synergy.app を実行しても何も表示されないのがそもそもバグっぽいのだけど、<br />
+とりあえずプロセスを kill すると勝手に再起動してくれて繋がったのでスリープ解除後に下記コマンドを自動で実行するようにした</p>
+<p><code>killall Synergy</code></p>
+<p>自動実行には sleepwatcher を使った<br />
+homebrew の場合以下のようにインストール出来る</p>
+<pre><code class="bash">brew install sleepwatcher
+brew tap homebrew/services
+brew services start sleepwatcher
 </code></pre>
+<p>インストール後、 <code>~/.sleep</code> と <code>~/.wakeup</code> というシェルスクリプトを作成して置いておくとそれぞれスリープ時と解除時に自動で実行してくれる</p>
 <div class="entry-links"></div>
 </section>
 <footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/tmux" rel="tag">tmux</a></span>
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/osx" rel="tag">osx</a>, <a href="https://www.yusukezzz.net/archives/tag/synergy" rel="tag">synergy</a></span>
 </footer> 
 </article>
-<article id="post-22" class="post-22 post type-post status-publish format-standard hentry category-uncategorized tag-php tag-wordpress">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/22" title="静的サイトジェネレーターを試して wordpress に戻ってみた話" rel="bookmark">静的サイトジェネレーターを試して wordpress に戻ってみた話</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-05-05</span>
-</section>
-</header>
-<section class="entry-content">
-<p>これまで jekyll, middleman, hugo などの静的サイトジェネレーターを試してきたけど、どうにも CLI で編集・管理する作業に慣れず長続きしなかった</p>
-<p>調べてみると GUI を持ったものもいくつか存在したが情報が少なそうだったので結局ローカルPCで wordpress を使って静的サイトを出力するという、本末転倒気味なことを試してみることにした</p>
-<p>途中、静的サイトジェネレーターに慣れた方が良かったのでは…？と思わないでもなかったが、一応それなりな環境が出来てしまったので作業の記録を残しておく</p>
-<p> <a href="https://www.yusukezzz.net/archives/22#more-22" class="more-link">続きを読む</a></p>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/php" rel="tag">php</a>, <a href="https://www.yusukezzz.net/archives/tag/wordpress" rel="tag">wordpress</a></span>
-</footer> 
-</article>
-<article id="post-6" class="post-6 post type-post status-publish format-standard hentry category-uncategorized">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/6" title="Hello world" rel="bookmark">Hello world</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-05-04</span>
-</section>
-</header>
-<section class="entry-content">
-<h1>test</h1>
-<pre><code class="php">echo "Hello world!";
-</code></pre>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links"></span>
-</footer> 
-</article>
-<nav id="nav-below" class="navigation" role="navigation">
-<div class="nav-previous"></div>
-<div class="nav-next"><a href="https://www.yusukezzz.net/archives/author/yusukezzz/page/2" >新しい方へ <span class="meta-nav">&rarr;</span></a></div>
-</nav>
 </section>
 </div>
 <footer id="footer" role="contentinfo">

@@ -11,12 +11,37 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Sat, 25 Nov 2017 13:51:32 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 29 Nov 2017 16:58:37 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.7.7</generator>
 	<item>
+		<title>osx 版 Synergy2 がスリープ復帰後に再接続してくれない</title>
+		<link>https://www.yusukezzz.net/archives/120</link>
+		<pubDate>Wed, 29 Nov 2017 16:56:59 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[osx]]></category>
+		<category><![CDATA[synergy]]></category>
+
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=120</guid>
+		<description><![CDATA[Synergy2 になってから表題の現象が起こっているのに気づいた ver は 2.0.1, 2.0.2 で確 [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>Synergy2 になってから表題の現象が起こっているのに気づいた<br />
+ver は 2.0.1, 2.0.2 で確認している</p>
+<p>osx 版は一度起動すると以降 Synergy.app を実行しても何も表示されないのがそもそもバグっぽいのだけど、<br />
+とりあえずプロセスを kill すると勝手に再起動してくれて繋がったのでスリープ解除後に下記コマンドを自動で実行するようにした</p>
+<p><code>killall Synergy</code></p>
+<p>自動実行には sleepwatcher を使った<br />
+homebrew の場合以下のようにインストール出来る</p>
+<pre><code class="bash">brew install sleepwatcher
+brew tap homebrew/services
+brew services start sleepwatcher
+</code></pre>
+<p>インストール後、 <code>~/.sleep</code> と <code>~/.wakeup</code> というシェルスクリプトを作成して置いておくとそれぞれスリープ時と解除時に自動で実行してくれる</p>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>PageSpeed Insights スコア向上のためにやったこと</title>
 		<link>https://www.yusukezzz.net/archives/109</link>
 		<pubDate>Sat, 25 Nov 2017 13:51:32 +0000</pubDate>

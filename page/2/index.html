@@ -116,6 +116,38 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 </section>
 </header>
 <div id="container"><section id="content" role="main">
+<article id="post-90" class="post-90 post type-post status-publish format-standard hentry category-uncategorized tag-debug tag-java tag-jvisualvm">
+<header>
+<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/90" title="jvisualvm でリモート接続" rel="bookmark">jvisualvm でリモート接続</a></h2> <section class="entry-meta">
+<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
+<span class="meta-sep"> | </span>
+<span class="entry-date">2017-10-13</span>
+</section>
+</header>
+<section class="entry-content">
+<p>jdk をインストールすると付いてくる便利なプロファイラ jvisualvm でリモートサーバの java プロセスに接続する方法についての覚書</p>
+<p>jvisualvm でリモート接続する方法は、<br />
+jstatd（これも jdk 組み込み）という java プロセスの監視ツールを経由する方法と JMX という仕様を利用する方法の2種類がある<br />
+今回はリモートサーバに jdk が入ってなかったので JMX でやる場合</p>
+<h3>JMX 起動オプション</h3>
+<p>リモートサーバで java アプリを起動する際に以下のオプションを指定しておく（以下は jdk8 の場合）<br />
+port は他で使われてなければ何でも良いが、同じ値を指定する<br />
+127.0.0.1 は環境に合わせて変える</p>
+<pre><code>-Dcom.sun.management.jmxremote.port=3333
+-Dcom.sun.management.jmxremote.rmi.port=3333
+-Dcom.sun.management.jmxremote.ssl=false
+-Dcom.sun.management.jmxremote.authenticate=false
+-Djava.rmi.server.hostname=127.0.0.1
+</code></pre>
+<p>今回接続する際は ssh のポートフォワーディングを利用した<br />
+<code>ssh -L 3333:127.0.0.1:3333 user@remote-server</code><br />
+などでリモートへの接続を開いておき jvisualvm から localhost:3333 に対して繋ぐ</p>
+<div class="entry-links"></div>
+</section>
+<footer class="entry-footer">
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/debug" rel="tag">debug</a>, <a href="https://www.yusukezzz.net/archives/tag/java" rel="tag">java</a>, <a href="https://www.yusukezzz.net/archives/tag/jvisualvm" rel="tag">jvisualvm</a></span>
+</footer> 
+</article>
 <article id="post-84" class="post-84 post type-post status-publish format-standard hentry category-uncategorized tag-laravel tag-php">
 <header>
 <h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/84" title="Laravel で .env の内容が反映されない場合" rel="bookmark">Laravel で .env の内容が反映されない場合</a></h2> <section class="entry-meta">
@@ -244,33 +276,6 @@ middleware は非常に便利だが、自分が実装・追加したわけでは
 </section>
 <footer class="entry-footer">
 <span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/api" rel="tag">api</a>, <a href="https://www.yusukezzz.net/archives/tag/free" rel="tag">free</a>, <a href="https://www.yusukezzz.net/archives/tag/image" rel="tag">image</a></span>
-</footer> 
-</article>
-<article id="post-46" class="post-46 post type-post status-publish format-standard hentry category-uncategorized tag-tmux">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/46" title="tmux 2.4 で vi 風キーバインドが invalid or unknown command と言われる" rel="bookmark">tmux 2.4 で vi 風キーバインドが invalid or unknown command と言われる</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-05-07</span>
-</section>
-</header>
-<section class="entry-content">
-<p>起動時に</p>
-<p><code>invalid or unknown command: bind-key -t vi-copy v begin-selection</code></p>
-<p>などと言われる<br />
-どうやら設定の書き方が変わってしまったようだ</p>
-<p><a href="https://github.com/tmux/tmux/issues/754">invalid or unknown command: &#96;bind&#45;key &#45;t vi&#45;copy &#46;&#46;&#46;&#46;&#96; · Issue &#35;754 · tmux/tmux</a></p>
-<p>ここの下の方に書かれているが、こんな感じにすると直った</p>
-<pre><code class="shell">unbind-key -T copy-mode-vi Space     ;   bind-key -T copy-mode-vi v send-keys -X begin-selection
-unbind-key -T copy-mode-vi Enter     ;   bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
-unbind-key -T copy-mode-vi C-v       ;   bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-unbind-key -T copy-mode-vi [         ;   bind-key -T copy-mode-vi [ send-keys -X begin-selection
-unbind-key -T copy-mode-vi ]         ;   bind-key -T copy-mode-vi ] send-keys -X copy-selection
-</code></pre>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/tmux" rel="tag">tmux</a></span>
 </footer> 
 </article>
 <nav id="nav-below" class="navigation" role="navigation">

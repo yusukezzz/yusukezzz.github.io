@@ -87,7 +87,7 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
  <!-- Facebook Open Graph -->
   <meta property="og:title" content="osx 版 Synergy2 がスリープ復帰後に再接続してくれない"/>
   <meta property="og:url" content="https://www.yusukezzz.net/archives/120"/>
-  <meta property="og:description" content="Synergy2 になってから表題の現象が起こっているのに気づいたver は 2.0.1, 2.0.2 で確認しているosx 版は一度起動すると以降 Synergy.app を実行しても何も表示されないのがそもそもバグっぽいのだけど、とりあえずプロセスを kill すると勝手に再起動してくれて繋がったのでスリープ解除後に下記コマンドを自動で実行するようにしたkillall Synergy自動実行には sleepwatcher を使ったhomebrew の場合以下のようにインストール出来るbrew install sleepwatcherbrew tap homebrew"/>
+  <meta property="og:description" content="Synergy2 になってから表題の現象が起こっているのに気づいたver は 2.0.1, 2.0.2 で確認しているosx 版は一度起動すると以降 Synergy.app を実行しても何も表示されないのがそもそもバグっぽいのだけど、とりあえずプロセスを kill すると勝手に再起動してくれて繋がったのでスリープ解除後に下記コマンドを自動で実行するようにしたkillall synergy-service自動実行には sleepwatcher を使ったhomebrew の場合以下のようにインストール出来るbrew install sleepwatcherbrew tap"/>
  <!-- Google+ / Schema.org -->
  <!-- Twitter Cards -->
  <!-- SEO -->
@@ -131,7 +131,7 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 ver は 2.0.1, 2.0.2 で確認している</p>
 <p>osx 版は一度起動すると以降 Synergy.app を実行しても何も表示されないのがそもそもバグっぽいのだけど、<br />
 とりあえずプロセスを kill すると勝手に再起動してくれて繋がったのでスリープ解除後に下記コマンドを自動で実行するようにした</p>
-<p><code>killall Synergy</code></p>
+<p><code>killall synergy-service</code></p>
 <p>自動実行には sleepwatcher を使った<br />
 homebrew の場合以下のようにインストール出来る</p>
 <pre><code class="bash">brew install sleepwatcher

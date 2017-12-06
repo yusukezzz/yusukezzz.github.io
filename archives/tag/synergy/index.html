@@ -129,7 +129,7 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 ver は 2.0.1, 2.0.2 で確認している</p>
 <p>osx 版は一度起動すると以降 Synergy.app を実行しても何も表示されないのがそもそもバグっぽいのだけど、<br />
 とりあえずプロセスを kill すると勝手に再起動してくれて繋がったのでスリープ解除後に下記コマンドを自動で実行するようにした</p>
-<p><code>killall Synergy</code></p>
+<p><code>killall synergy-service</code></p>
 <p>自動実行には sleepwatcher を使った<br />
 homebrew の場合以下のようにインストール出来る</p>
 <pre><code class="bash">brew install sleepwatcher

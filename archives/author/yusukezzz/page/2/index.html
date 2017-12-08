@@ -116,6 +116,30 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 </section>
 </header>
 <div id="container"><section id="content" role="main">
+<article id="post-92" class="post-92 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-library">
+<header>
+<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/92" title="chrome custom tabs の warmup" rel="bookmark">chrome custom tabs の warmup</a></h2> <section class="entry-meta">
+<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
+<span class="meta-sep"> | </span>
+<span class="entry-date">2017-10-18</span>
+</section>
+</header>
+<section class="entry-content">
+<p>custom tabs を使う際は事前に chrome のプロセスを温めておくことで遷移を高速化出来るのだけど、自前で実装しようと思うと結構面倒くさい<br />
+先人の知恵を拝借しようと Github を検索すると下記の実装が見つかった</p>
+<p><a href="https://github.com/DreaminginCodeZH/CustomTabsHelper">DreaminginCodeZH/CustomTabsHelper: Custom tabs, made easy&#46;</a></p>
+<p><a href="https://github.com/saschpe/android-customtabs">saschpe/android&#45;customtabs: Chrome CustomTabs for Android demystified&#46; Simplifies development and provides higher level classes including fallback in case Chrome isn&#8217;t available on device&#46;</a></p>
+<p>CustomTabsHelper は Fragment を使う前提の実装で、今回自分は Fragment を使っていなかったので後者の android-customtabs を採用した<br />
+使い方は非常にシンプルで README と example の通りなので省略する</p>
+<p>基本的な実装はどちらも同じ、というか下記公式の customtabs 使用例が元になっていて単にアプリ（Fragment）開始時に customtabs の service に接続し、停止時に切断している<br />
+<a href="https://github.com/GoogleChrome/custom-tabs-client">GoogleChrome/custom&#45;tabs&#45;client: Chrome custom tabs examples</a></p>
+<p>ちょっとしたことだけど非常に反応が良くなるので customtabs を使うならぜひ利用したい</p>
+<div class="entry-links"></div>
+</section>
+<footer class="entry-footer">
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/android" rel="tag">android</a>, <a href="https://www.yusukezzz.net/archives/tag/library" rel="tag">library</a></span>
+</footer> 
+</article>
 <article id="post-90" class="post-90 post type-post status-publish format-standard hentry category-uncategorized tag-debug tag-java tag-jvisualvm">
 <header>
 <h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/90" title="jvisualvm でリモート接続" rel="bookmark">jvisualvm でリモート接続</a></h2> <section class="entry-meta">
@@ -257,25 +281,6 @@ middleware は非常に便利だが、自分が実装・追加したわけでは
 </section>
 <footer class="entry-footer">
 <span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/laravel" rel="tag">laravel</a>, <a href="https://www.yusukezzz.net/archives/tag/php" rel="tag">php</a></span>
-</footer> 
-</article>
-<article id="post-55" class="post-55 post type-post status-publish format-standard hentry category-uncategorized tag-api tag-free tag-image">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/55" title="無料で使える画像リサイズAPI" rel="bookmark">無料で使える画像リサイズAPI</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-05-16</span>
-</section>
-</header>
-<section class="entry-content">
-<p>Android アプリで使うために指定した url の画像をリサイズして返してくれるAPIを探したところ、2つ見つけることが出来た<br />
-しかもどちらも無料で利用でき、 https にも対応している<br />
-登録も API key の取得も要らず、画像の url を書き換えるだけで今すぐ利用出来る</p>
-<p> <a href="https://www.yusukezzz.net/archives/55#more-55" class="more-link">続きを読む</a></p>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/api" rel="tag">api</a>, <a href="https://www.yusukezzz.net/archives/tag/free" rel="tag">free</a>, <a href="https://www.yusukezzz.net/archives/tag/image" rel="tag">image</a></span>
 </footer> 
 </article>
 <nav id="nav-below" class="navigation" role="navigation">

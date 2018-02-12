@@ -15,7 +15,7 @@
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
-	<generator>https://wordpress.org/?v=4.7.8</generator>
+	<generator>https://wordpress.org/?v=4.7.9</generator>
 	<item>
 		<title>Switch ソフトのDL版は量販店で買おう</title>
 		<link>https://www.yusukezzz.net/archives/125</link>
@@ -25,7 +25,7 @@
 		<category><![CDATA[game]]></category>
 		<category><![CDATA[switch]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=125</guid>
+		<guid isPermaLink="false">http://blog.dev/?p=125</guid>
 		<description><![CDATA[先日運良く amazon で Switch を定価購入することが出来た 早速ゼノブレイド2のDL版をニンテンド [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>先日運良く amazon で Switch を定価購入することが出来た</p>
 <p>早速ゼノブレイド2のDL版をニンテンドーeショップで購入（もちろん定価）した<br />
@@ -51,7 +51,7 @@ Sony PS4 のDL版は PlayStation Store でしか提供されておらず、<br /
 		<category><![CDATA[osx]]></category>
 		<category><![CDATA[synergy]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=120</guid>
+		<guid isPermaLink="false">http://blog.dev/?p=120</guid>
 		<description><![CDATA[Synergy2 になってから表題の現象が起こっているのに気づいた ver は 2.0.1, 2.0.2 で確 [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>Synergy2 になってから表題の現象が起こっているのに気づいた<br />
 ver は 2.0.1, 2.0.2 で確認している</p>
@@ -76,7 +76,7 @@ brew services start sleepwatcher
 		<category><![CDATA[css]]></category>
 		<category><![CDATA[js]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=109</guid>
+		<guid isPermaLink="false">http://blog.dev/?p=109</guid>
 		<description><![CDATA[PageSpeed Insights www.yusukezzz.net のスコアはPC版で90、モバイル向け [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a></p>
 <p>www.yusukezzz.net のスコアはPC版で90、モバイル向けで87となっている<br />
@@ -84,7 +84,7 @@ github.io に置いてるサイトなので出来ることはあまり多くな�
 <h3>CSS, JS の縮小</h3>
 <p>いわゆる minify と言われているやつ<br />
 wordpress だと plugin で出来たりするが、この blog では cloudflare の機能を利用している<br />
-<img src="https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png" alt="" width="300" height="148" class="alignnone size-medium wp-image-115" srcset="https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png 300w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-768x379.png 768w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-1024x506.png 1024w" sizes="(max-width: 300px) 100vw, 300px" /><br />
+<img src="http://blog.dev/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png" alt="" width="300" height="148" class="alignnone size-medium wp-image-115" srcset="https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png 300w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-768x379.png 768w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-1024x506.png 1024w" sizes="(max-width: 300px) 100vw, 300px" /><br />
 Speed タブの Auto Minify から有効化出来る<br />
 CSS, JS, HTMLの3種類が選べるが、この blog だとHTMLの minify は不具合があったので CSS, JS だけ使用している</p>
 <h3>レンダリングをブロックしているコンテンツの排除</h3>
@@ -132,7 +132,7 @@ CSS, JS, HTMLの3種類が選べるが、この blog だとHTMLの minify は不
 		<category><![CDATA[kotlin]]></category>
 		<category><![CDATA[parcelable]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=99</guid>
+		<guid isPermaLink="false">http://blog.dev/?p=99</guid>
 		<description><![CDATA[Kotlin 1.1.4 から Parcelable を手軽に実装できるようにする機能が追加された KEEP/ [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>Kotlin 1.1.4 から Parcelable を手軽に実装できるようにする機能が追加された</p>
 <p><a href="https://github.com/Kotlin/KEEP/blob/master/proposals/extensions/android-parcelable.md">KEEP/android&#45;parcelable&#46;md at master · Kotlin/KEEP</a></p>
@@ -165,7 +165,7 @@ CRETOR フィールドを用意する必要はないが、@Parcelize アノテ�
 		<category><![CDATA[android]]></category>
 		<category><![CDATA[robolectric]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=97</guid>
+		<guid isPermaLink="false">http://blog.dev/?p=97</guid>
 		<description><![CDATA[先日 Android Studio 3.0 が正式にリリースされたので早速ダウンロードしてビルドしたら Rob [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>先日 Android Studio 3.0 が正式にリリースされたので早速ダウンロードしてビルドしたら Robolectric のテストがコケるようになってしまった<br />
 <a href="http://robolectric.org/getting-started/">Getting Started &#124; Robolectric</a> に書いてある通りなのだけど以下の対応をしたら通るようになった<br />
@@ -194,7 +194,7 @@ CRETOR フィールドを用意する必要はないが、@Parcelize アノテ�
 		<category><![CDATA[android]]></category>
 		<category><![CDATA[library]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=92</guid>
+		<guid isPermaLink="false">http://blog.dev/?p=92</guid>
 		<description><![CDATA[custom tabs を使う際は事前に chrome のプロセスを温めておくことで遷移を高速化出来るのだけど [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>custom tabs を使う際は事前に chrome のプロセスを温めておくことで遷移を高速化出来るのだけど、自前で実装しようと思うと結構面倒くさい<br />
 先人の知恵を拝借しようと Github を検索すると下記の実装が見つかった</p>
@@ -217,7 +217,7 @@ CRETOR フィールドを用意する必要はないが、@Parcelize アノテ�
 		<category><![CDATA[java]]></category>
 		<category><![CDATA[jvisualvm]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=90</guid>
+		<guid isPermaLink="false">http://blog.dev/?p=90</guid>
 		<description><![CDATA[jdk をインストールすると付いてくる便利なプロファイラ jvisualvm でリモートサーバの java プ [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>jdk をインストールすると付いてくる便利なプロファイラ jvisualvm でリモートサーバの java プロセスに接続する方法についての覚書</p>
 <p>jvisualvm でリモート接続する方法は、<br />
@@ -247,7 +247,7 @@ port は他で使われてなければ何でも良いが、同じ値を指定す
 		<category><![CDATA[laravel]]></category>
 		<category><![CDATA[php]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=84</guid>
+		<guid isPermaLink="false">http://blog.dev/?p=84</guid>
 		<description><![CDATA[公式マニュアルにも記載があるが、 Laravel アプリで artisan config:cache を行って [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p><a href="https://laravel.com/docs/5.5/configuration#configuration-caching">公式マニュアル</a>にも記載があるが、<br />
 Laravel アプリで <code>artisan config:cache</code> を行っていると .env を変更してもファイルの内容が反映されない<br />
@@ -268,7 +268,7 @@ Laravel アプリで <code>artisan config:cache</code> を行っていると .en
 		<category><![CDATA[ufw]]></category>
 		<category><![CDATA[vultr]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=77</guid>
+		<guid isPermaLink="false">http://blog.dev/?p=77</guid>
 		<description><![CDATA[SSD VPS Servers, Cloud Servers and Cloud Hosting by Vul [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p><a href="https://www.vultr.com/">SSD VPS Servers, Cloud Servers and Cloud Hosting by Vultr &#45; Vultr&#46;com</a> というサービスで ubuntu をインストールした時の記録</p>
 <p>2.5ドルのは空きがなかったので5ドルのプランにした<br />
@@ -336,7 +336,7 @@ sudo vim /etc/ntp.conf
 		<category><![CDATA[laravel]]></category>
 		<category><![CDATA[php]]></category>
 
-		<guid isPermaLink="false">https://www.yusukezzz.net/?p=70</guid>
+		<guid isPermaLink="false">http://blog.dev/?p=70</guid>
 		<description><![CDATA[Model のフィールドに空文字列を渡しているつもりが mysql 側から NonNull なカラムに Nul [&#8230;]]]></description>
 				<content:encoded><![CDATA[<p>Model のフィールドに空文字列を渡しているつもりが mysql 側から NonNull なカラムに Null が渡されたとエラーが返ってきてこの機能の存在に気づいた<br />
 middleware は非常に便利だが、自分が実装・追加したわけではない処理に関してはこのような暗黙的な副作用があったりして中々厳しい</p>

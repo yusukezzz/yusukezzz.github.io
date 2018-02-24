@@ -11,12 +11,43 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Fri, 08 Dec 2017 17:47:40 +0000</lastBuildDate>
+	<lastBuildDate>Sat, 24 Feb 2018 07:32:15 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.7.9</generator>
 	<item>
+		<title>スマホが突然壊れた時にやったこと</title>
+		<link>https://www.yusukezzz.net/archives/133</link>
+		<pubDate>Sat, 24 Feb 2018 07:31:19 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[android]]></category>
+
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=133</guid>
+		<description><![CDATA[先日、普通に操作中に Nexus5X がシャットダウンしてしまいました ファクトリリセットなどを試してもブート [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>先日、普通に操作中に Nexus5X がシャットダウンしてしまいました<br />
+ファクトリリセットなどを試してもブートアニメーションを突破出来ず、<br />
+故障と判断して諦めてスマホを新調することになったのでその時大変だったことをまとめておきます</p>
+<h3>一応再起動出来るかの検証</h3>
+<p>cache, data パーティションの初期化、電源ボタン連打、端末を冷やしてから再起動などググって出て来る方法は一通り試しましたがダメでした<br />
+bootloader はアンロックしていなかったのでファクトリイメージの再書き込みで回復出来たのかは未検証です</p>
+<h3>SIMカードの入れ替え</h3>
+<p>悲しいことに N5X 付属のピンを紛失しており途方に暮れました<br />
+代わりになりそうなものがなかったので仕方なく爪楊枝をカッターで加工して頑張って取り出しました。。。<br />
+N5X のSIMスロットの穴は iPhone などと比べて小さく、安全ピンなどの代用品でも太さ次第では使えないので注意が必要です<br />
+新しい端末の Xperia XZ1 compact は防水のためかSIMスロットがキャップ式で、トレーも指で簡単に引き出せて感動しました</p>
+<h3>各種アカウントの復旧</h3>
+<p>新しい端末に Google アカウントをセットアップする際に、旧端末の2段階認証アプリが使えなかったため詰みかけました<br />
+結局PCブラウザでログインしっぱなしだったため、パスワード入力でリカバリコード画面にアクセス出来て助かりました<br />
+Slack もアプリで認証していたのですが、たまたまPC版クライアントがログイン状態であればなんとかなる仕様だったため助かりました</p>
+<p>このような場合、リカバリコードを保存したり代替のアクセス手段を用意しておかないとサービス次第で詰みます<br />
+またコードの保存先も検討が必要で、例えば dropbox に置いても dropbox 自体がアプリでの2段階認証になってると詰みます<br />
+自分は最近2段階認証を有効化したものはアプリに登録するのが面倒でSMS認証になっていたため助かりました（dropboxもその一つ）<br />
+とはいえ端末の物理的紛失・盗難を考慮するとリカバリコードを紙に印刷しておくのが一番無難ということになるかもしれません…</p>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>Switch ソフトのDL版は量販店で買おう</title>
 		<link>https://www.yusukezzz.net/archives/125</link>
 		<pubDate>Fri, 08 Dec 2017 17:44:20 +0000</pubDate>

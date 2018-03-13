@@ -11,12 +11,42 @@
 	<atom:link href="https://www.yusukezzz.net/feed" rel="self" type="application/rss+xml" />
 	<link>https://www.yusukezzz.net/</link>
 	<description></description>
-	<lastBuildDate>Sat, 24 Feb 2018 07:32:15 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 13 Mar 2018 17:36:36 +0000</lastBuildDate>
 	<language>ja</language>
 	<sy:updatePeriod>hourly</sy:updatePeriod>
 	<sy:updateFrequency>1</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=4.7.9</generator>
 	<item>
+		<title>PS4 に外付けSSDを導入</title>
+		<link>https://www.yusukezzz.net/archives/138</link>
+		<pubDate>Tue, 13 Mar 2018 17:04:19 +0000</pubDate>
+		<dc:creator><![CDATA[yusukezzz]]></dc:creator>
+				<category><![CDATA[uncategorized]]></category>
+		<category><![CDATA[game]]></category>
+		<category><![CDATA[ps4]]></category>
+
+		<guid isPermaLink="false">https://www.yusukezzz.net/?p=138</guid>
+		<description><![CDATA[もうMHWは100時間以上プレイしているのですが、今更ながらSSDを導入してみました 起動時間やクエスト出発時 [&#8230;]]]></description>
+				<content:encoded><![CDATA[<p>もうMHWは100時間以上プレイしているのですが、今更ながらSSDを導入してみました<br />
+起動時間やクエスト出発時のロードが本当に短くなるのでおすすめです</p>
+<p>今回はPS4がSATA2までしか対応してないのと、<br />
+システムソフトウェアの再インストールが面倒そうだったので外付けにしました<br />
+PS4ProならSATA3なので内蔵化した方がいいです</p>
+<p>購入したSSDは売れ筋の<a href="http://amzn.to/2FCrFAB">Crucial SSD 500GB MX500</a>です<br />
+250GB以上であればなんでも良いですが、SATA3のものにしておきましょう</p>
+<p>外付けケースはSATA3かつUSB3.0以上のものを選んでおけばとりあえず問題ないと思われますが、<br />
+メーカーホームページを参照するなどして最大転送速度の説明はよく読みましょう<br />
+予算に余裕がある場合は、今後を考えるとUSB3.1 Gen2又はSuperSpeed+という10Gbpsの規格に対応した製品が良いかもしれません<br />
+自分はセンチュリーの<a href="http://amzn.to/2FynxWr">CSS25U31BK</a>にしました<br />
+本当は玄人志向の<a href="http://amzn.to/2FGTWpI">GW2.5FST-SU3.1</a>が欲しかったのですが、秋葉原の店頭でも売り切れていました。。。</p>
+<p>2.5インチストレージには7.5mmと9mmの2種類があり、ケースも対応している厚さが違うので組み合わせに注意しましょう<br />
+上記は7.5mm同士の組み合わせになります</p>
+<p>ケースにSSDをセットしてケーブルでPS4に繋ぐと自動的に認識されフォーマットを促されます<br />
+フォーマット完了後は新規ソフトのインストール先が外付けストレージになり、<br />
+設定メニュー＞ストレージから内蔵の方にあるソフトを移動させたり出来るようになります</p>
+]]></content:encoded>
+			</item>
+		<item>
 		<title>スマホが突然壊れた時にやったこと</title>
 		<link>https://www.yusukezzz.net/archives/133</link>
 		<pubDate>Sat, 24 Feb 2018 07:31:19 +0000</pubDate>

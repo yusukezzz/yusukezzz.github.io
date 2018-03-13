@@ -116,6 +116,38 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 </section>
 </header>
 <div id="container"><section id="content" role="main">
+<article id="post-138" class="post-138 post type-post status-publish format-standard hentry category-uncategorized tag-game tag-ps4">
+<header>
+<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/138" title="PS4 に外付けSSDを導入" rel="bookmark">PS4 に外付けSSDを導入</a></h2> <section class="entry-meta">
+<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
+<span class="meta-sep"> | </span>
+<span class="entry-date">2018-03-14</span>
+</section>
+</header>
+<section class="entry-content">
+<p>もうMHWは100時間以上プレイしているのですが、今更ながらSSDを導入してみました<br />
+起動時間やクエスト出発時のロードが本当に短くなるのでおすすめです</p>
+<p>今回はPS4がSATA2までしか対応してないのと、<br />
+システムソフトウェアの再インストールが面倒そうだったので外付けにしました<br />
+PS4ProならSATA3なので内蔵化した方がいいです</p>
+<p>購入したSSDは売れ筋の<a href="http://amzn.to/2FCrFAB">Crucial SSD 500GB MX500</a>です<br />
+250GB以上であればなんでも良いですが、SATA3のものにしておきましょう</p>
+<p>外付けケースはSATA3かつUSB3.0以上のものを選んでおけばとりあえず問題ないと思われますが、<br />
+メーカーホームページを参照するなどして最大転送速度の説明はよく読みましょう<br />
+予算に余裕がある場合は、今後を考えるとUSB3.1 Gen2又はSuperSpeed+という10Gbpsの規格に対応した製品が良いかもしれません<br />
+自分はセンチュリーの<a href="http://amzn.to/2FynxWr">CSS25U31BK</a>にしました<br />
+本当は玄人志向の<a href="http://amzn.to/2FGTWpI">GW2.5FST-SU3.1</a>が欲しかったのですが、秋葉原の店頭でも売り切れていました。。。</p>
+<p>2.5インチストレージには7.5mmと9mmの2種類があり、ケースも対応している厚さが違うので組み合わせに注意しましょう<br />
+上記は7.5mm同士の組み合わせになります</p>
+<p>ケースにSSDをセットしてケーブルでPS4に繋ぐと自動的に認識されフォーマットを促されます<br />
+フォーマット完了後は新規ソフトのインストール先が外付けストレージになり、<br />
+設定メニュー＞ストレージから内蔵の方にあるソフトを移動させたり出来るようになります</p>
+<div class="entry-links"></div>
+</section>
+<footer class="entry-footer">
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/game" rel="tag">game</a>, <a href="https://www.yusukezzz.net/archives/tag/ps4" rel="tag">ps4</a></span>
+</footer> 
+</article>
 <article id="post-133" class="post-133 post type-post status-publish format-standard hentry category-uncategorized tag-android">
 <header>
 <h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/133" title="スマホが突然壊れた時にやったこと" rel="bookmark">スマホが突然壊れた時にやったこと</a></h2> <section class="entry-meta">
@@ -260,41 +292,6 @@ CSS, JS, HTMLの3種類が選べるが、この blog だとHTMLの minify は不
 </section>
 <footer class="entry-footer">
 <span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/css" rel="tag">css</a>, <a href="https://www.yusukezzz.net/archives/tag/js" rel="tag">js</a></span>
-</footer> 
-</article>
-<article id="post-99" class="post-99 post type-post status-publish format-standard hentry category-uncategorized tag-android tag-kotlin tag-parcelable">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/99" title="Kotlin の Parcelize で簡単 Parcelable 実装" rel="bookmark">Kotlin の Parcelize で簡単 Parcelable 実装</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-11-23</span>
-</section>
-</header>
-<section class="entry-content">
-<p>Kotlin 1.1.4 から Parcelable を手軽に実装できるようにする機能が追加された</p>
-<p><a href="https://github.com/Kotlin/KEEP/blob/master/proposals/extensions/android-parcelable.md">KEEP/android&#45;parcelable&#46;md at master · Kotlin/KEEP</a></p>
-<p>まだステータスは正式版ではないので gradle で</p>
-<pre><code class="gradle">androidExtensions {
-    experimental = true
-}
-</code></pre>
-<p>を有効化し、</p>
-<pre><code class="kotlin">@Parcelize
-class MyParcelable(val data: Int): Parcelable
-</code></pre>
-<p>このように書いておくとコンパイル時に自動的に Parcelable 相当の実装を生成してくれる<br />
-data クラスにも使用出来るので json のパース結果などを Activity 間で受け渡すのが非常に簡単になる</p>
-<p>これまでは <a href="https://github.com/grandstaish/paperparcel">grandstaish/paperparcel</a> を使っていたが <code>CREATOR</code> フィールドを用意する必要がないのでより手軽だ</p>
-<p>※注意<br />
-CRETOR フィールドを用意する必要はないが、@Parcelize アノテーションを付与したクラスはIDE上で<br />
-<code>this class implements parcelable but does not provide a CREATOR field</code><br />
-というエラー扱いになる（でもコンパイルは通る）<br />
-下記チケットが起票されているので、直に修正される…と思いたい<br />
-<a href="https://youtrack.jetbrains.com/issue/KT-19300">&#91;AS3&#46;0&#93; Android extensions, Parcelable: editor shows warning about incomplete implementation on a class with Parcelize annotation : KT&#45;19300</a></p>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/android" rel="tag">android</a>, <a href="https://www.yusukezzz.net/archives/tag/kotlin" rel="tag">kotlin</a>, <a href="https://www.yusukezzz.net/archives/tag/parcelable" rel="tag">parcelable</a></span>
 </footer> 
 </article>
 <nav id="nav-below" class="navigation" role="navigation">

@@ -116,6 +116,82 @@ textarea#comment{box-sizing:border-box;width:100%;max-width:350px;height:100px}
 </section>
 </header>
 <div id="container"><section id="content" role="main">
+<article id="post-143" class="post-143 post type-post status-publish format-standard hentry category-uncategorized tag-homebrew tag-mac tag-mysql">
+<header>
+<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/143" title="mac で homebrew から入れた mysql 8.0 を 5.7 に落とす" rel="bookmark">mac で homebrew から入れた mysql 8.0 を 5.7 に落とす</a></h2> <section class="entry-meta">
+<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
+<span class="meta-sep"> | </span>
+<span class="entry-date">2018-07-29</span>
+</section>
+</header>
+<section class="entry-content">
+<p>ダウングレードとは言ってない<br />
+公式ドキュメントにもダウングレードがサポートされてないことははっきり書いてあります<br />
+<a href="https://dev.mysql.com/doc/refman/8.0/en/downgrading.html">MySQL :: MySQL 8&#46;0 Reference Manual :: 2&#46;10&#46;2 Downgrading MySQL</a></p>
+<p>production では必ず8.0に上げる前にバックアップを取っておきましょう</p>
+<p>今回、 Homebrew で入れてたやつをうっかりアップグレードしてしまって焦りました<br />
+最終的に data ディレクトリを初期化する羽目になりました。。。（一応データは救出出来ました）<br />
+以下流れです</p>
+<h3>うっかり 8.0 にしてしまう</h3>
+<p>brew upgrade でよく見ずに更新してしまい、いつの間にか起動できなくなっているのに気付きました<br />
+その時はこのようなエラーが出ていました</p>
+<pre><code class="bash">2018-07-28T19:27:30.524132Z 1 [ERROR] [MY-010781] [Server] Found ./mysql/index_stats.frm file in mysql schema. DD will
+create .ibd file with same name. Please rename table and start upgrade process again.
+2018-07-28T19:27:30.524175Z 1 [ERROR] [MY-010336] [Server] Found .frm file with same name as one of the Dictionary Tab
+les.
+2018-07-28T19:27:30.524338Z 0 [ERROR] [MY-010020] [Server] Data Dictionary initialization failed.
+2018-07-28T19:27:30.524359Z 0 [ERROR] [MY-010119] [Server] Aborting
+</code></pre>
+<h3>5.7 を入れ直す</h3>
+<p>他にも色々変わってそうだし 8.0 を使い続けるのは厳しそうだったので元に戻す方向で頑張ることにしました<br />
+実行したコマンドは以下の通り（8.0を消して5.7を入れ直してます）</p>
+<pre><code class="bash">brew sevices stop mysql
+brew uninstall mysql
+brew install mysql@5.7
+brew services start mysql@5.7
+</code></pre>
+<h3>しかし5.7が起動しない</h3>
+<p>素直には起動してくれず、以下のようなログが吐かれていました</p>
+<pre><code class="bash">2018-07-28T22:01:56.921910Z 0 [ERROR] InnoDB: Unsupported redo log format. The redo log was created with MySQL 8.0.11. Please follow the instructions at http://dev.mysql.com/doc/refman/5.7/en/upgrading-downgrading.html
+2018-07-28T22:01:56.921954Z 0 [ERROR] InnoDB: Plugin initialization aborted with error Generic error
+2018-07-28T22:01:57.428053Z 0 [ERROR] Plugin 'InnoDB' init function returned error.
+2018-07-28T22:01:57.428134Z 0 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+2018-07-28T22:01:57.428180Z 0 [ERROR] Failed to initialize builtin plugins.
+2018-07-28T22:01:57.428202Z 0 [ERROR] Aborting
+</code></pre>
+<p>どうやら中途半端に 8.0 向けになったファイルが悪さをしていそう？<br />
+ひとまず起動させて dump だけしたかったので redo log が書かれている ib_logfile を移動させてみます</p>
+<pre><code class="bash">brew services stop mysql@5.7
+mkdir ~/backup
+cd /usr/local/var/mysql
+mv ib_logfile* ~/backup
+brew services start myswl@5.7
+</code></pre>
+<p>自分の場合はこれで起動しました！<br />
+しかし err ログを見てると不穏な出力がありました</p>
+<pre><code class="bash">2018-07-28T22:09:52.237832Z 0 [Warning] InnoDB: Table mysql/innodb_index_stats has length mismatch in the column name
+table_name.  Please run mysql_upgrade
+</code></pre>
+<p><code>innodb_index_stats</code> は <code>mysql</code> DB にある統計用テーブルとのことで、致命的な問題ではなさそうです（起動してますし）<br />
+一応動いているのでこのまま dump してしまいます</p>
+<p><code>mysqldump -u root --databases db1 db2... &gt; ~/all.sql</code></p>
+<h3>復旧</h3>
+<p>これで必要なデータは吸い出せたので、データディレクトリを初期化して dump したデータを入れ直します</p>
+<pre><code class="bash">brew services stop mysql@5.7
+cd /usr/local/var
+mv mysql mysql_old
+mkdir mysql
+mysqld --initialize-insecure
+brew services start mysql@5.7
+mysql -u root &lt; ~/all.sql
+</code></pre>
+<p>このブログのデータも無事元通りになりました</p>
+<div class="entry-links"></div>
+</section>
+<footer class="entry-footer">
+<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/homebrew" rel="tag">homebrew</a>, <a href="https://www.yusukezzz.net/archives/tag/mac" rel="tag">mac</a>, <a href="https://www.yusukezzz.net/archives/tag/mysql" rel="tag">mysql</a></span>
+</footer> 
+</article>
 <article id="post-138" class="post-138 post type-post status-publish format-standard hentry category-uncategorized tag-game tag-ps4">
 <header>
 <h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/138" title="PS4 に外付けSSDを導入" rel="bookmark">PS4 に外付けSSDを導入</a></h2> <section class="entry-meta">
@@ -235,63 +311,6 @@ brew services start sleepwatcher
 </section>
 <footer class="entry-footer">
 <span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/osx" rel="tag">osx</a>, <a href="https://www.yusukezzz.net/archives/tag/synergy" rel="tag">synergy</a></span>
-</footer> 
-</article>
-<article id="post-109" class="post-109 post type-post status-publish format-standard hentry category-uncategorized tag-css tag-js">
-<header>
-<h2 class="entry-title"><a href="https://www.yusukezzz.net/archives/109" title="PageSpeed Insights スコア向上のためにやったこと" rel="bookmark">PageSpeed Insights スコア向上のためにやったこと</a></h2> <section class="entry-meta">
-<span class="author vcard"><a href="https://www.yusukezzz.net/archives/author/yusukezzz" title="yusukezzz の投稿" rel="author">yusukezzz</a></span>
-<span class="meta-sep"> | </span>
-<span class="entry-date">2017-11-25</span>
-</section>
-</header>
-<section class="entry-content">
-<p><a href="https://developers.google.com/speed/pagespeed/insights/">PageSpeed Insights</a></p>
-<p>www.yusukezzz.net のスコアはPC版で90、モバイル向けで87となっている<br />
-github.io に置いてるサイトなので出来ることはあまり多くないのだけど、元は70点台ぐらいだったのでここまで上げるためにやったこと2点をまとめておく</p>
-<h3>CSS, JS の縮小</h3>
-<p>いわゆる minify と言われているやつ<br />
-wordpress だと plugin で出来たりするが、この blog では cloudflare の機能を利用している<br />
-<img src="http://blog.dev/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png" alt="" width="300" height="148" class="alignnone size-medium wp-image-115" srcset="https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-300x148.png 300w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-768x379.png 768w, https://www.yusukezzz.net/wp-content/uploads/2017/11/cloudflare-speed-autominify-1024x506.png 1024w" sizes="(max-width: 300px) 100vw, 300px" /><br />
-Speed タブの Auto Minify から有効化出来る<br />
-CSS, JS, HTMLの3種類が選べるが、この blog だとHTMLの minify は不具合があったので CSS, JS だけ使用している</p>
-<h3>レンダリングをブロックしているコンテンツの排除</h3>
-<p>同期的に読み込まれる CSS, JS はページのレンダリングを遅くするため、非同期的に読み込むとスコアが向上する<br />
-読み込むだけで効果のある単純な JS であれば async または defer 属性を付けるだけでなんとかなる(※)が、<br />
-読み込んでから初期化処理を呼び出す必要がある場合は読み込み完了に hook して実行する必要がある<br />
-この blog では highlightjs が該当し、ページ末尾で以下のような script を実行している</p>
-<p>※document.write しちゃってるような行儀の悪い script や読み込み順に依存関係があるものを除く</p>
-<pre><code class="javascript">&lt;script&gt;
-  function loadCss(url) {
-    var l = document.createElement('link'); l.rel = 'stylesheet'; l.href = url;
-    var h = document.getElementsByTagName('head')[0]; h.parentNode.insertBefore(l, h);
-  }
-  function loadJs(url, cb) {
-    var d = document, t = 'script',
-        o = d.createElement(t),
-        s = d.getElementsByTagName(t)[0];
-    o.async = true;
-    o.src = url;
-    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
-    s.parentNode.insertBefore(o, s);
-  }
-  var cb = function() {
-    loadCss('https://www.yusukezzz.net/wp-content/highlightjs/solarized-light.css');
-    loadJs('https://www.yusukezzz.net/wp-content/highlightjs/highlight.pack.js', function() {
-      hljs.initHighlightingOnLoad();
-    });
-  };
-  var raf = requestAnimationFrame || mozRequestAnimationFrame ||
-      webkitRequestAnimationFrame || msRequestAnimationFrame;
-  if (raf) raf(cb);
-  else window.addEventListener('load', cb);
-&lt;/script&gt;
-</code></pre>
-<p>もっとも、小規模なものであれば外部ファイル化せずに直接 head タグ内に書いたほうが良い（インライン展開）</p>
-<div class="entry-links"></div>
-</section>
-<footer class="entry-footer">
-<span class="tag-links">タグ: <a href="https://www.yusukezzz.net/archives/tag/css" rel="tag">css</a>, <a href="https://www.yusukezzz.net/archives/tag/js" rel="tag">js</a></span>
 </footer> 
 </article>
 <nav id="nav-below" class="navigation" role="navigation">
